@@ -1,0 +1,2578 @@
+Program.Sub.ScreenSU.Start
+Gui.FormSOWIPFG..Create
+Gui.FormSOWIPFG..Caption("Setup/Packaging Audit Screen")
+Gui.FormSOWIPFG..Size(15660,10755)
+Gui.FormSOWIPFG..MinX(0)
+Gui.FormSOWIPFG..MinY(0)
+Gui.FormSOWIPFG..Position(0,0)
+Gui.FormSOWIPFG..BackColor(-2147483633)
+Gui.FormSOWIPFG..MousePointer(0)
+Gui.FormSOWIPFG..Event(UnLoad,FormSOWIPFG_UnLoad)
+Gui.FormSOWIPFG.lblSalesOrder.Create(Label,"Sales Order",True,1935,255,0,105,135,True,0,"Arial",8,-2147483633,0)
+Gui.FormSOWIPFG.txtSalesOrder.Create(TextBox,"",True,1815,300,0,105,360,True,0,"Arial",8,-2147483643,1)
+Gui.FormSOWIPFG.txtSalesOrder.Event(GotFocus,txtSalesOrder_GotFocus)
+Gui.FormSOWIPFG.txtSalesOrder.Event(LostFocus,txtSalesOrder_LostFocus)
+Gui.FormSOWIPFG.txtSalesOrder.Event(KeyPressEnter,txtSalesOrder_KeyPressEnter)
+Gui.FormSOWIPFG.cmdSOBrowser.Create(Button)
+Gui.FormSOWIPFG.cmdSOBrowser.Size(420,375)
+Gui.FormSOWIPFG.cmdSOBrowser.Position(1965,330)
+Gui.FormSOWIPFG.cmdSOBrowser.Caption("^")
+Gui.FormSOWIPFG.cmdSOBrowser.Event(Click,cmdSOBrowser_Click)
+Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.Create(GsGridControl)
+Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.Size(15360,8715)
+Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.Position(105,990)
+Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.Event(RowCellClick,GsGridControlSOWIPTOFG_RowCellClick)
+Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.Event(MouseCellEnter,GsGridControlSOWIPTOFG_MouseCellEnter)
+Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.Event(CellValueChanged,GsGridControlSOWIPTOFG_CellValueChanged)
+Gui.FormSOWIPFG.cmdWIPTOFG.Create(Button)
+Gui.FormSOWIPFG.cmdWIPTOFG.Size(1200,375)
+Gui.FormSOWIPFG.cmdWIPTOFG.Position(12795,330)
+Gui.FormSOWIPFG.cmdWIPTOFG.Caption("WIP TO FG")
+Gui.FormSOWIPFG.cmdWIPTOFG.Event(Click,cmdWIPTOFG_Click)
+Gui.FormSOWIPFG.lblPart/WO.Create(Label,"Scan Job Suffix or Part #",True,1935,255,0,105,9810,True,0,"Arial",8,-2147483633,0)
+Gui.FormSOWIPFG.txtPart/WO.Create(TextBox,"",True,2340,300,0,105,10035,True,0,"Arial",8,-2147483643,1)
+Gui.FormSOWIPFG.txtPart/WO.Event(GotFocus,txtPart_GotFocus)
+Gui.FormSOWIPFG.txtPart/WO.Event(KeyPressEnter,txtPart_KeyPressEnter)
+Gui.FormSOWIPFG.cmdExportToExcel.Create(Button)
+Gui.FormSOWIPFG.cmdExportToExcel.Size(1440,375)
+Gui.FormSOWIPFG.cmdExportToExcel.Position(14025,330)
+Gui.FormSOWIPFG.cmdExportToExcel.Caption("Export To Excel")
+Gui.FormSOWIPFG.cmdExportToExcel.Event(Click,cmdExportToExcel_Click)
+Gui.FormSOWIPFG.lblExcelnotpresent.Create(Label,"**Excel Not Present On Computer",True,2535,255,0,12930,105,True,0,"Arial",8,-2147483633,0)
+Gui.FormSOWIPFG.lblRedNote.Create(Label,"No Qty Scanned and No To Bin Selected",True,3075,255,0,2940,9810,True,0,"Arial",8,-2147483633,0)
+Gui.FormSOWIPFG.lblYellowNote.Create(Label,"Qty Scanned > 0 ",True,1395,255,0,7815,9810,True,0,"Arial",8,-2147483633,0)
+Gui.FormSOWIPFG.lblGreenNote.Create(Label,"Qty Scanned = Qty Ordered and To Bin as been Selected",True,4275,255,0,2940,10095,True,0,"Arial",8,-2147483633,0)
+Gui.FormSOWIPFG.lblBlueNote.Create(Label,"Qty WIP = Qty Ordered",True,1860,255,0,9705,10095,True,0,"Arial",8,-2147483633,0)
+Gui.FormSOWIPFG.lblRed.Create(Label,"",True,405,255,0,2490,9810,True,0,"Arial",8,6579453,1)
+Gui.FormSOWIPFG.lblRed.BorderStyle(1)
+Gui.FormSOWIPFG.lblYellow.Create(Label,"",True,405,255,0,7335,9810,True,0,"Arial",8,7601645,1)
+Gui.FormSOWIPFG.lblYellow.BorderStyle(1)
+Gui.FormSOWIPFG.lblGreen.Create(Label,"",True,405,255,0,2490,10095,True,0,"Arial",8,6618468,1)
+Gui.FormSOWIPFG.lblGreen.BorderStyle(1)
+Gui.FormSOWIPFG.lblBlue.Create(Label,"",True,405,255,0,9225,10095,True,0,"Arial",8,16022853,1)
+Gui.FormSOWIPFG.lblBlue.BorderStyle(1)
+Gui.FormSOWIPFG.lblWhite.Create(Label,"",True,405,255,0,9225,9810,True,0,"Arial",8,16777215,1)
+Gui.FormSOWIPFG.lblWhite.BorderStyle(1)
+Gui.FormSOWIPFG.lblWhiteNote.Create(Label,"BOM Parent",True,1860,255,0,9705,9810,True,0,"Arial",8,-2147483633,0)
+Gui.FormSOWIPFG.lblBlueish.Create(Label,"",True,405,255,0,7335,10095,True,0,"Arial",8,12579906,1)
+Gui.FormSOWIPFG.lblBlueish.BorderStyle(1)
+Gui.FormSOWIPFG.lblBlueishNote.Create(Label,"Parital WIP",True,1020,255,0,7875,10095,True,0,"Arial",8,-2147483633,0)
+Gui.FormSOWIPFG.lblPrintQtyOverride.Create(Label,"Print Qty Override",True,1935,255,0,2625,150,True,0,"Arial",8,-2147483633,0)
+Gui.FormSOWIPFG.txtPrintQtyOverride.Create(TextBox,"",True,1215,300,0,2670,360,True,0,"Arial",8,-2147483643,1)
+Gui.FormSOWIPFG.txtPrintQtyOverride.NumericOnly(2)
+Gui.FormSOWIPFG.txtPrintQtyOverride.DefaultValue("5")
+Gui.FormSOWIPFG.txtPrintQtyOverride.Event(GotFocus,txtPrintQtyOverride_GotFocus)
+Gui.FormSOWIPFG.txtPrintQtyOverride.Event(LostFocus,txtPrintQtyOverride_LostFocus)
+Gui.FormSOWIPFG.ddlLabelPrinter.Create(DropDownList)
+Gui.FormSOWIPFG.ddlLabelPrinter.Size(2160,330)
+Gui.FormSOWIPFG.ddlLabelPrinter.Position(10605,360)
+Gui.FormSOWIPFG.lblLabelPrinter.Create(Label,"Label Printer",True,1935,255,0,10605,105,True,0,"Arial",8,-2147483633,0)
+Gui.FormSOWIPFG.lblLabelPrinter.DefaultValue("")
+Gui.FormSOWIPFG.cboToBin.Create(ComboBox)
+Gui.FormSOWIPFG.cboToBin.Size(1245,330)
+Gui.FormSOWIPFG.cboToBin.Position(8190,360)
+Gui.FormSOWIPFG.lblToBin.Create(Label,"To Bin",True,1290,255,0,8190,105,True,0,"Arial",8,-2147483633,0)
+Gui.FormSOWIPFG.cmdAdjustBins.Create(Button)
+Gui.FormSOWIPFG.cmdAdjustBins.Size(975,375)
+Gui.FormSOWIPFG.cmdAdjustBins.Position(9525,330)
+Gui.FormSOWIPFG.cmdAdjustBins.Caption("All To Bins")
+Gui.FormSOWIPFG.cmdAdjustBins.Event(Click,cmdAdjustBins_Click)
+Gui.FormSOWIPFG.chkLabels.Create(CheckBox)
+Gui.FormSOWIPFG.chkLabels.Size(2670,255)
+Gui.FormSOWIPFG.chkLabels.Position(12795,720)
+Gui.FormSOWIPFG.chkLabels.Caption("Print Labels before WIP TO FG")
+Gui.Form_QtyOverride..Create
+Gui.Form_QtyOverride..Caption("Part Qty Override")
+Gui.Form_QtyOverride..Size(6255,2385)
+Gui.Form_QtyOverride..MinX(0)
+Gui.Form_QtyOverride..MinY(0)
+Gui.Form_QtyOverride..Position(0,0)
+Gui.Form_QtyOverride..BackColor(-2147483633)
+Gui.Form_QtyOverride..MousePointer(0)
+Gui.Form_QtyOverride..Event(UnLoad,Form_QtyOverride_UnLoad)
+Gui.Form_QtyOverride.lblQtyRemain/Scanned.Create(Label,"Qty Remaining/Scanned",True,2670,255,0,105,270,True,0,"Arial",8,-2147483633,0)
+Gui.Form_QtyOverride.lblQtyAdd/Remove.Create(Label,"Qty Add/Remove",True,2385,255,0,3510,270,True,0,"Arial",8,-2147483633,0)
+Gui.Form_QtyOverride.txtQtyOrdered/Scanned.Create(TextBox,"",True,1755,300,0,105,630,True,0,"Arial",8,-2147483643,1)
+Gui.Form_QtyOverride.txtQtyOrdered/Scanned.NumericOnly(2)
+Gui.Form_QtyOverride.txtQtyOrdered/Scanned.Locked(True)
+Gui.Form_QtyOverride.txtQtyAdd/Remove.Create(TextBox,"",True,1755,300,0,3510,630,True,0,"Arial",8,-2147483643,1)
+Gui.Form_QtyOverride.txtQtyAdd/Remove.NumericOnly(2)
+Gui.Form_QtyOverride.txtQtyAdd/Remove.Event(GotFocus,txtQtyAdd/Remove_GotFocus)
+Gui.Form_QtyOverride.txtQtyAdd/Remove.Event(Change,txtQtyAdd/Remove_Change)
+Gui.Form_QtyOverride.cmdSubmit.Create(Button)
+Gui.Form_QtyOverride.cmdSubmit.Size(1170,375)
+Gui.Form_QtyOverride.cmdSubmit.Position(150,1200)
+Gui.Form_QtyOverride.cmdSubmit.Caption("Submit")
+Gui.Form_QtyOverride.cmdSubmit.Event(Click,cmdSubmit_Click)
+Gui.FormItemMaster..Create
+Gui.FormItemMaster..Caption("Part Quantities")
+Gui.FormItemMaster..Size(12435,6330)
+Gui.FormItemMaster..MinX(0)
+Gui.FormItemMaster..MinY(0)
+Gui.FormItemMaster..Position(0,0)
+Gui.FormItemMaster..BackColor(-2147483633)
+Gui.FormItemMaster..MousePointer(0)
+Gui.FormItemMaster..Event(UnLoad,FormItemMaster_UnLoad)
+Gui.FormItemMaster.GsGridControlItemMaster.Create(GsGridControl)
+Gui.FormItemMaster.GsGridControlItemMaster.Size(12210,5955)
+Gui.FormItemMaster.GsGridControlItemMaster.Position(45,60)
+Gui.Form_Comments..Create
+Gui.Form_Comments..Caption("View Comments")
+Gui.Form_Comments..Size(12810,7035)
+Gui.Form_Comments..MinX(0)
+Gui.Form_Comments..MinY(0)
+Gui.Form_Comments..Position(0,0)
+Gui.Form_Comments..BackColor(-2147483633)
+Gui.Form_Comments..MousePointer(0)
+Gui.Form_Comments..Event(UnLoad,Form_Comments_UnLoad)
+Gui.Form_Comments.GsGridControlViewComments.Create(GsGridControl)
+Gui.Form_Comments.GsGridControlViewComments.Size(12630,5925)
+Gui.Form_Comments.GsGridControlViewComments.Position(30,30)
+Gui.Form_Comments.GsGridControlEditComments.Create(GsGridControl)
+Gui.Form_Comments.GsGridControlEditComments.Size(12630,5925)
+Gui.Form_Comments.GsGridControlEditComments.Position(30,30)
+Gui.Form_Comments.GsGridControlEditComments.Event(RowCellClick,GsGridControlEditComments_RowCellClick)
+Gui.Form_Comments.cmdCommentSave.Create(Button)
+Gui.Form_Comments.cmdCommentSave.Size(855,375)
+Gui.Form_Comments.cmdCommentSave.Position(105,6195)
+Gui.Form_Comments.cmdCommentSave.Caption("Save")
+Gui.Form_Comments.cmdCommentSave.Event(Click,cmdCommentSave_Click)
+Gui.Form_LabelOverride..Create
+Gui.Form_LabelOverride..Caption("Label Override")
+Gui.Form_LabelOverride..Size(5370,2415)
+Gui.Form_LabelOverride..MinX(0)
+Gui.Form_LabelOverride..MinY(0)
+Gui.Form_LabelOverride..Position(0,0)
+Gui.Form_LabelOverride..BackColor(-2147483633)
+Gui.Form_LabelOverride..MousePointer(0)
+Gui.Form_LabelOverride..Event(UnLoad,Form_LabelOverride_UnLoad)
+Gui.Form_LabelOverride.lblQtyPer.Create(Label,"Qty Per Label",True,1830,255,0,105,270,True,0,"Arial",8,-2147483633,0)
+Gui.Form_LabelOverride.lblNumberOfLabels.Create(Label,"Number of Labels",True,2010,255,0,3060,270,True,0,"Arial",8,-2147483633,0)
+Gui.Form_LabelOverride.txtQtyPer.Create(TextBox,"",True,1755,300,0,105,645,True,0,"Arial",8,-2147483643,1)
+Gui.Form_LabelOverride.txtQtyPer.NumericOnly(2)
+Gui.Form_LabelOverride.txtQtyPer.Event(GotFocus,txtQtyPer_GotFocus)
+Gui.Form_LabelOverride.txtNumberOfLabels.Create(TextBox,"",True,1755,300,0,3060,645,True,0,"Arial",8,-2147483643,1)
+Gui.Form_LabelOverride.txtNumberOfLabels.NumericOnly(2)
+Gui.Form_LabelOverride.txtNumberOfLabels.Event(GotFocus,txtNumberOfLabels_GotFocus)
+Gui.Form_LabelOverride.cmdSubmit.Create(Button)
+Gui.Form_LabelOverride.cmdSubmit.Size(855,375)
+Gui.Form_LabelOverride.cmdSubmit.Position(90,1320)
+Gui.Form_LabelOverride.cmdSubmit.Caption("Submit")
+Gui.Form_LabelOverride.cmdSubmit.Event(Click,cmdSubmit_Click1)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+V.Global.iIndex.Declare(Long,-1)
+V.Global.sOrder.Declare(String,"")
+V.Global.sGridComments.Declare(String,"")
+Program.External.Include.Library("2003.lib")
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare(String,"")
+
+	'set anchors on screen
+	F.Intrinsic.Control.CallSub(Set_Anchors)
+	'create empty datatable to be used by the program
+	F.Intrinsic.Control.CallSub(BuildEmptyDataTable)
+	'attach gridview and set properties to the grid
+	F.Intrinsic.Control.CallSub(Set_Grid_Properties)
+	'create context menu
+	F.Intrinsic.Control.CallSub(Create_ContextMenu)
+	'check presence of excel
+	F.Intrinsic.Control.CallSub(Check_For_Excel)
+	
+	'show the form
+	Gui.FormSOWIPFG..Show
+
+	F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}","GCG_4826_SO_WIPTOFG.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub(FormSOWIPFG_UnLoad)
+	F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+Program.Sub.Main.End
+
+Program.Sub.txtSalesOrder_LostFocus.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare(String,"")
+
+	'call sub to populate grid if a sales order as been entered.
+	F.Intrinsic.Control.If(V.Screen.FormSOWIPFG!txtSalesOrder.Text,<>,"")
+		F.Intrinsic.Control.CallSub(Populate_Grid)
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}","GCG_4826_SO_WIPTOFG.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub(FormSOWIPFG_UnLoad)
+	F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+Program.Sub.txtSalesOrder_LostFocus.End
+
+Program.Sub.txtSalesOrder_GotFocus.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare(String,"")
+
+	'select all text
+	Gui.FormSOWIPFG.txtSalesOrder.SelectAll
+	
+	F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}","GCG_4826_SO_WIPTOFG.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub(FormSOWIPFG_UnLoad)
+	F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+Program.Sub.txtSalesOrder_GotFocus.End
+
+Program.Sub.cmdSOBrowser_Click.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare(String,"")
+	V.Local.sSql.Declare(String,"")
+	V.Local.sTitles.Declare(String,"")
+	V.Local.sWidths.Declare(String,"")
+	V.Local.sRet.Declare(String,"")
+	
+	'setting last action
+	F.Intrinsic.Debug.SetLA("Creating Sales Order Browser")
+	
+	F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+	
+	'custom browswer to select sales order
+	V.Local.sSql.Set("Select Order_No, Customer From V_Order_Header Order by Order_No") 
+	V.Local.sTitles.Set("Order*!*Customer")
+	V.Local.sWidths.Set("1800*!*6250")
+
+	F.Intrinsic.String.Split(V.Local.sTitles,"*!*",V.Local.sTitles)
+	F.Intrinsic.String.Split(V.Local.sWidths,"*!*",V.Local.sWidths)
+
+	F.ODBC.Connection!Con.OpenCompanyConnection
+	
+	F.Intrinsic.UI.Browser("Select Sales Order","con",V.Local.sSql,V.Local.sTitles,V.Local.sWidths,10200,9000,V.Local.sRet)
+	
+	F.ODBC.Connection!Con.Close
+	
+	F.Intrinsic.Control.If(V.Local.sRet,<>,V.Ambient.Cancel)
+		Gui.FormSOWIPFG.cboToBin.ListIndex(0)
+		F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+		Gui.FormSOWIPFG.txtSalesOrder.Text(V.Local.sRet)
+		F.Intrinsic.Control.CallSub(Populate_Grid)
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}Last Action: {5}","GCG_4826_SO_WIPTOFG.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.LastAction,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub(FormSOWIPFG_UnLoad)
+	F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+Program.Sub.cmdSOBrowser_Click.End
+
+Program.Sub.FormSOWIPFG_UnLoad.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare(String,"")
+	V.Local.sDir.Declare(String,"")
+	V.Local.bRet.Declare(Boolean,False)
+	V.Local.sFile.Declare(String,"")
+	V.Local.sReturn.Declare(String,"")
+	
+	F.Intrinsic.String.Build("{0}\Custom\4826",V.Caller.GlobalDir,V.Local.sDir)
+	F.Intrinsic.String.Build("{0}\{1}_4826_WIPTOFG.txt",V.Local.sDir,V.Caller.User,V.Local.sFile)
+	
+	F.Intrinsic.File.DirExists(V.Local.sDir,V.Local.bRet)
+	
+	F.Intrinsic.Control.If(V.Local.bRet,=,False)
+		F.Intrinsic.File.CreateDir(V.Local.sDir)
+	F.Intrinsic.Control.EndIf
+	
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.Serialize("SOGRID",V.Local.sReturn)
+	
+	F.Intrinsic.File.String2File(V.Local.sFile,V.Local.sReturn)
+	
+	'check if connection is still open if so close connection
+	F.Intrinsic.Control.If(V.ODBC.Connection!Con.State,=,1)
+		F.ODBC.Connection!Con.Close
+	F.Intrinsic.Control.EndIf
+	
+	'end program
+	F.Intrinsic.Control.End
+	
+	F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		F.Intrinsic.Control.End
+	F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+Program.Sub.FormSOWIPFG_UnLoad.End
+
+Program.Sub.cmdWIPTOFG_Click.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare(String,"")
+	V.Local.i.Declare(Long,0)
+	V.Local.iC.Declare(Long,0)
+	V.Local.iQty.Declare(Long,1)
+	V.Local.iQtyRemain.Declare(Long,0)
+	V.Local.iRptID.Declare(Long,0)
+	V.Local.fLabel.Declare(Float,0)
+	V.Local.bRet.Declare(Boolean,False)
+	V.Local.sFields.Declare(String,"")
+	V.Local.sDataTypes.Declare(String,"")
+	V.Local.sPrinter.Declare(String,"")
+	V.Local.iBIRunID.Declare(Long,0)
+	V.Local.iLogID.Declare(Long,0)
+	V.Local.sSql.Declare(String,"")
+	
+	'Getting a list of Job Suffix that ready be WIP
+	F.Data.DataView.Create("SOWIPTOFG","WIP",22,"(Qty_Scanned > WIP_Qty and WIPToFG = 'N') OR (Qty_Ordered = WIP_Qty and WIPToFG = 'N')","Record_No Desc")
+	
+	'printing inv labels first
+	F.Intrinsic.Control.If(V.Screen.FormSOWIPFG!chkLabels.Value,=,1)
+		F.Intrinsic.UI.InvokeWaitDialog("Printing Inventory Labels..............")
+		F.Intrinsic.Control.For(V.Local.iC,0,V.DataView.SOWIPTOFG!WIP.RowCount--,1)
+			F.Intrinsic.Math.Sub(V.DataView.SOWIPTOFG!WIP(V.Local.iC).Qty_Scanned!FieldVal,V.DataView.SOWIPTOFG!WIP(V.Local.iC).WIP_Qty!FieldVal,V.Local.iQtyRemain)
+			F.Intrinsic.Control.If(V.Local.iQtyRemain,>,V.Screen.FormSOWIPFG!txtPrintQtyOverride.Text)
+				V.Local.iQty.Set(V.Screen.FormSOWIPFG!txtPrintQtyOverride.Text)
+				F.Intrinsic.Math.Div(V.Local.iQtyRemain,V.Local.iQty,V.Local.fLabel)
+				F.Intrinsic.Control.If(V.Local.fLabel,>,V.Local.fLabel.Long)
+					F.Intrinsic.Math.Add(V.Local.fLabel.Long,1,V.Local.fLabel)
+				F.Intrinsic.Control.Else
+					V.Local.fLabel.Set(V.Local.fLabel.Long)
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.Else
+				V.Local.fLabel.Set(1)
+			F.Intrinsic.Control.EndIf
+			
+'			V.Local.sFields.Set("WO*!*WO_SUFFIX*!*SO*!*SO_LINE*!*PART*!*DESCR*!*ALT_DESC_1*!*USER_ID*!*QTYONLABEL")
+'			V.Local.sDataTypes.Set("String*!*String*!*String*!*String*!*String*!*String*!*String*!*String*!*String")
+'	
+'			F.Data.DataTable.CreateFromString("LabelTemp","String*!*String*!*String*!*String*!*String*!*String*!*String*!*String*!*String",V.Local.sFields,V.Local.sDataTypes,"*!*","@!@",True)
+			F.Data.DataTable.Create("LabelTemp")
+			F.Data.DataTable.AddColumn("LabelTemp","WO",String)
+			F.Data.DataTable.AddColumn("LabelTemp","WO_SUFFIX",String)
+			F.Data.DataTable.AddColumn("LabelTemp","SO",String)
+			F.Data.DataTable.AddColumn("LabelTemp","SO_LINE",String)
+			F.Data.DataTable.AddColumn("LabelTemp","PART",String)
+			F.Data.DataTable.AddColumn("LabelTemp","DESCR",String)
+			F.Data.DataTable.AddColumn("LabelTemp","ALT_DESC_1",String)
+			F.Data.DataTable.AddColumn("LabelTemp","USER_ID",String)
+			F.Data.DataTable.AddColumn("LabelTemp","QTYONLABEL",String)
+		
+			F.Data.DataTable.DeleteRow("LabelTemp")
+			F.Data.DataTable.AcceptChanges("LabelTemp")
+	
+			F.Data.DataTable.AddRow("LabelTemp","WO",V.DataView.SOWIPTOFG!WIP(V.Local.iC).Job!FieldValTrim,"WO_SUFFIX",V.DataView.SOWIPTOFG!WIP(V.Local.iC).Suffix!FieldValTrim,"SO",V.DataView.SOWIPTOFG!WIP(V.Local.iC).Order_No!FieldValTrim,"SO_LINE",V.DataView.SOWIPTOFG!WIP(V.Local.iC).Record_No!FieldValTrim,"Part",V.DataView.SOWIPTOFG!WIP(V.Local.iC).Part!FieldValTrim,"DESCR",V.DataView.SOWIPTOFG!WIP(V.Local.iC).Description!FieldValTrim,"USER_ID",V.Caller.User,"QTYONLABEL",V.Local.iQty,"ALT_DESC_1","")
+		
+			F.Intrinsic.String.Build("Select Description_2 From V_Inventory_Mst2 Where Part = '{0}'",V.DataView.SOWIPTOFG!WIP(V.Local.iC).Part!FieldValTrim,V.Local.sSql)
+			F.ODBC.Connection!Con.OpenCompanyConnection
+			F.Data.DataTable.CreateFromSQL("AltDesc","Con",V.Local.sSql,True)
+			F.ODBC.Connection!Con.Close
+			
+			F.Intrinsic.Control.If(V.DataTable.AltDesc.RowCount--,<>,-1)
+				F.Data.DataTable.SetValue("LabelTemp",-1,"ALT_DESC_1",V.DataTable.AltDesc(V.DataTable.AltDesc.RowCount--).Description_2!FieldValTrim)
+			F.Intrinsic.Control.EndIf
+		
+			F.Data.DataTable.Close("AltDesc")
+		
+			F.Global.BI.GetIDFromName("GCG_4826_Audit_Label.lab",V.Local.iRptID)
+			V.Local.sPrinter.Set(V.Screen.FormSOWIPFG!ddlLabelPrinter.Text)
+		
+			F.Intrinsic.Control.For(V.Local.i,1,V.Local.fLabel,1)
+				F.Intrinsic.Control.If(V.Local.iQty,>,1)
+					F.Intrinsic.Control.If(V.Local.i,=,V.Local.fLabel)
+						F.Intrinsic.Math.Mult(V.Local.iQty,V.Local.i,V.Local.iQty)
+						F.Intrinsic.Math.Sub(V.Local.iQty,V.Local.iQtyRemain,V.Local.iQty)
+						F.Intrinsic.Math.Sub(V.Screen.FormSOWIPFG!txtPrintQtyOverride.Text,V.Local.iQty,V.Local.iQty)
+						F.Data.DataTable.SetValue("LabelTemp",-1,"QtyOnLabel",V.Local.iQty)
+					F.Intrinsic.Control.EndIf
+				F.Intrinsic.Control.EndIf
+				F.Global.BI.GetRunID(V.Local.iBIRunID)
+				F.Global.BI.StartLogging(V.Local.iBIRunID,V.Local.iRptID,0,"",V.Local.iLogID)
+				F.Global.BI.StopLogging(V.Local.iLogID)
+				F.Global.BI.PrintCodesoftLabelFromDataTable(V.Local.iBIRunID,V.Local.iLogID,"LabelTemp",V.Local.sPrinter,True)
+			F.Intrinsic.Control.Next(V.Local.i)
+			F.Data.DataTable.Close("LabelTemp")
+		F.Intrinsic.Control.Next(V.Local.iC)
+		
+	F.Intrinsic.Control.Else
+		F.Intrinsic.UI.InvokeWaitDialog("Getting WIP Records..............")
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.UI.ChangeWaitStatus("Getting WIP Records..............")
+	F.Intrinsic.Control.If(V.DataView.SOWIPTOFG!WIP.RowCount--,<>,-1)
+		F.Intrinsic.Control.For(V.Local.i,V.DataView.SOWIPTOFG!WIP.RowCount--,0,-1)
+			F.Intrinsic.UI.ChangeWaitStatus("WIP To WIP in Process..............")
+			F.Intrinsic.Control.CallSub(WIPToWIP,"DVIndex",V.Local.i)
+			
+			F.Intrinsic.Variable.ArgExists("WIPTOFG",V.Local.bRet)
+			F.Intrinsic.Control.If(V.Local.bRet)
+				F.Intrinsic.Control.If(V.Args.WIPTOFG)
+					F.Intrinsic.UI.ChangeWaitStatus("WIP To FG in Process...............")
+					F.Intrinsic.Control.CallSub(WIPToFG,"DVIndex",V.Local.i)
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Next(V.Local.i)
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.UI.CloseWaitDialog
+	
+	F.Data.DataView.Close("SOWIPTOFG","WIP")
+	
+	F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}Last Action: {5}","GCG_4826_SO_WIPTOFG.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.LastAction,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub(FormSOWIPFG_UnLoad)
+	F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+Program.Sub.cmdWIPTOFG_Click.End
+
+Program.Sub.Set_Anchors.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare(String,"")
+
+	'setting last action
+	F.Intrinsic.Debug.SetLA("Setting Anchors on the Screen.")
+	'setting anchors
+	Gui.FormSOWIPFG.cmdSOBrowser.Anchor(5)
+	Gui.FormSOWIPFG.txtSalesOrder.Anchor(5)
+	Gui.FormSOWIPFG.lblSalesOrder.Anchor(5)
+	Gui.FormSOWIPFG.cmdWIPTOFG.Anchor(9)
+	Gui.FormSOWIPFG.cmdExportToExcel.Anchor(9)
+	gui.FormSOWIPFG.lblPart/WO.Anchor(6)
+	gui.FormSOWIPFG.txtPart/WO.Anchor(6)
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.Anchor(15)
+	Gui.FormItemMaster.GsGridControlItemMaster.Anchor(15)
+	Gui.Form_QtyOverride.cmdSubmit.Anchor(5)
+	Gui.Form_QtyOverride.lblQtyAdd/Remove.Anchor(5)
+	Gui.Form_QtyOverride.lblQtyRemain/Scanned.Anchor(5)
+	Gui.Form_QtyOverride.txtQtyAdd/Remove.Anchor(5)
+	Gui.Form_QtyOverride.txtQtyOrdered/Scanned.Anchor(5)
+	Gui.FormSOWIPFG.lblBlue.Anchor(6)
+	Gui.FormSOWIPFG.lblBlueNote.Anchor(6)
+	Gui.FormSOWIPFG.lblGreen.Anchor(6)
+	Gui.FormSOWIPFG.lblGreenNote.Anchor(6)
+	Gui.FormSOWIPFG.lblYellow.Anchor(6)
+	Gui.FormSOWIPFG.lblYellowNote.Anchor(6)
+	Gui.FormSOWIPFG.lblRed.Anchor(6)
+	Gui.FormSOWIPFG.lblRedNote.Anchor(6)
+	Gui.FormSOWIPFG.lblWhite.Anchor(6)
+	Gui.FormSOWIPFG.lblWhiteNote.Anchor(6)
+	F.Intrinsic.Debug.SetLA("Setting TabIndex on the Screen.")
+	Gui.FormSOWIPFG.txtSalesOrder.TabIndex(0)	
+	Gui.FormSOWIPFG.cmdSOBrowser.TabIndex(1)
+	Gui.FormSOWIPFG.txtPart/WO.TabIndex(2)
+	Gui.FormSOWIPFG.cmdWIPTOFG.TabIndex(3)
+	Gui.FormSOWIPFG.lblLabelPrinter.Anchor(9)
+	Gui.FormSOWIPFG.ddlLabelPrinter.Anchor(9)
+	Gui.FormSOWIPFG.lblBlueishNote.Anchor(6)
+	Gui.FormSOWIPFG.lblBlueish.Anchor(6)
+	
+	F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}Last Action: {5}","GCG_4826_SO_WIPTOFG.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.LastAction,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub(FormSOWIPFG_UnLoad)
+	F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+Program.Sub.Set_Anchors.End
+
+Program.Sub.BuildEmptyDataTable.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare(String,"")
+	V.Local.sSql.Declare(String,"")
+	V.Local.sColumns.Declare(String,"")
+	V.Local.sDataTypes.Declare(String,"")
+	V.Local.sData.Declare(String,"")
+	
+	'setting last action
+	F.Intrinsic.Debug.SetLA("Building DataTable From String.")
+	
+	V.Local.sColumns.Set("Order_No*!*Record_No*!*Product_Line*!*Part*!*Description*!*Code_Sort*!*Source*!*Job*!*Suffix*!*Qty_Ordered*!*Qty_Scanned*!*To_Bin*!*WIPToFG*!*WIP_Qty*!*Default_Bin*!*Inv_Qty*!*Comment*!*Flag_Bom")
+	V.Local.sData.Set("String*!*String*!*String*!*String*!*String*!*String*!*String*!*String*!*String*!*0*!*0*!*String*!*String*!*0*!*String*!*0*!*String*!*String")
+	V.Local.sDataTypes.Set("String*!*String*!*String*!*String*!*String*!*String*!*String*!*String*!*String*!*Float*!*Float*!*String*!*String*!*Float*!*String*!*Float*!*String*!*String")
+	
+	F.Data.DataTable.CreateFromString("SOWIPTOFG",V.Local.sData,V.Local.sColumns,V.Local.sDataTypes,"*!*","@!@",True)
+	
+	F.Data.DataTable.DeleteRow("SOWIPTOFG")
+	
+	F.Data.DataTable.AcceptChanges("SOWIPTOFG")
+
+	V.Local.sColumns.Set("Part*!*Lot*!*Bin*!*Heat*!*Serial_Number*!*Quantity")
+	V.Local.sData.Set("String*!*String*!*String*!*String*!*String*!*0")
+	V.Local.sDataTypes.Set("String*!*String*!*String*!*String*!*String*!*Float")
+	
+	F.Data.DataTable.CreateFromString("ItemMaster",V.Local.sData,V.Local.sColumns,V.Local.sDataTypes,"*!*","@!@",True)
+	
+	F.Data.DataTable.DeleteRow("ItemMaster")
+	
+	F.Data.DataTable.AcceptChanges("ItemMaster")
+	
+'	V.Local.sColumns.Set("Rec_No*!*Order_No*!*Record_No*!*Comment")
+'	V.Local.sData.Set("0*!*String*!*String*!*String")
+'	V.Local.sDataTypes.Set("Long*!*String*!*String*!*String")
+'	
+'	F.Data.DataTable.CreateFromString("ViewComments",V.Local.sData,V.Local.sColumns,V.Local.sDataTypes,"*!*","@!@",True)
+'	
+'	F.Data.DataTable.DeleteRow("ViewComments")
+'	
+'	F.Data.DataTable.AcceptChanges("ViewComments")
+'	
+'	F.Data.DataTable.CreateFromString("EditComments",V.Local.sData,V.Local.sColumns,V.Local.sDataTypes,"*!*","@!@",True)
+'	
+'	F.Data.DataTable.AddColumn("EditComments","Button","String")
+'	
+'	F.Data.DataTable.DeleteRow("EditComments")
+'	
+'	F.Data.DataTable.AcceptChanges("EditComments")
+	
+	F.Intrinsic.Control.If(V.Caller.User.UCase,=,"SUPERVSR")
+		Gui.FormSOWIPFG.lblPrintQtyOverride.Visible(True)
+		Gui.FormSOWIPFG.txtPrintQtyOverride.Visible(True)
+	F.Intrinsic.Control.Else
+		Gui.FormSOWIPFG.lblPrintQtyOverride.Visible(False)
+		Gui.FormSOWIPFG.txtPrintQtyOverride.Visible(False)
+	F.Intrinsic.Control.EndIf
+	
+	F.ODBC.Connection!Con.OpenCompanyConnection
+	
+	'getting print qty ovverride
+	F.Intrinsic.String.Build("Select Company, Print_Qty From GCG_4826_Print_Qty Where Company = '{0}'",V.Caller.CompanyCode,V.Local.sSql)
+	
+	F.Data.DataTable.CreateFromSQL("PrintQty","con",V.Local.sSql,True)
+	
+	F.ODBC.Connection!Con.Close
+	
+	F.Intrinsic.Control.If(V.DataTable.PrintQty.RowCount--,<>,-1)
+		Gui.FormSOWIPFG.txtPrintQtyOverride.Text(V.DataTable.PrintQty(V.DataTable.PrintQty.RowCount--).Print_Qty!FieldValLong)
+	F.Intrinsic.Control.Else
+		Gui.FormSOWIPFG.txtPrintQtyOverride.Text("5")
+	F.Intrinsic.Control.EndIf
+	
+	F.ODBC.Connection!ConC.OpenConnection(V.Ambient.Ccon,V.Ambient.Cuser,V.Ambient.Cpass)
+	
+	'creating datatable for sentinel enabled printers
+	V.Local.sSql.Set("Select PrinterName, rtrim(Sentinelalias) From Server_Printers Where Sentinelenabled = 1 Order By Sentinelalias")
+	F.Data.Dictionary.CreateFromSQL("Printer","ConC",V.Local.sSql)
+
+	Gui.FormSOWIPFG.ddlLabelPrinter.AddItem("",0)
+	Gui.FormSOWIPFG.ddlLabelPrinter.AddItems("Dictionary","Printer")
+
+	F.Data.Dictionary.Close("Printer")
+	
+	F.ODBC.Connection!ConC.Close
+	
+	F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}Last Action: {5}","GCG_4826_SO_WIPTOFG.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.LastAction,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub(FormSOWIPFG_UnLoad)
+	F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+Program.Sub.BuildEmptyDataTable.End
+
+Program.Sub.Set_Grid_Properties.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare(String,"")
+	V.Local.sBin.Declare(String,"")
+	V.Local.sSql.Declare(String,"")
+	V.Local.sFile.Declare(String,"")
+	V.Local.sReturn.Declare(String,"")
+	V.Local.bRet.Declare(Boolean,False)
+	
+	F.ODBC.Connection!Con.OpenCompanyConnection
+	'setting last action
+	F.Intrinsic.Debug.SetLA("Getting Bins from Bin Master.")
+	F.Intrinsic.String.Build("Select Distinct Bin From V_Bin_Master Order by Bin","",V.Local.sSql)
+	F.ODBC.Connection!Con.ExecuteAndReturn(V.Local.sSql,V.Local.sBin)
+	F.Intrinsic.String.Replace(V.Local.sBin,"#$#","*!*",V.Local.sBin)
+	F.Intrinsic.String.Build("*!*{0}",V.Local.sBin,V.Local.sBin)
+
+	F.Intrinsic.String.Build("Select Distinct rtrim(Bin),rtrim(Bin) From V_Bin_Master Where Bin <> '' Order by Bin","",V.Local.sSql)
+	F.Data.Dictionary.CreateFromSQL("Bins","con",V.Local.sSql)
+	F.Data.Dictionary.SetDefaultReturn("Bins"," ")
+	Gui.FormSOWIPFG.cboToBin.AddItem(" ",0)
+	Gui.FormSOWIPFG.cboToBin.AddItems("Dictionary","Bins")
+	F.Data.Dictionary.Close("Bins")
+	
+	F.ODBC.Connection!Con.Close
+	
+	'setting last action
+	F.Intrinsic.Debug.SetLA("Adding GridView from DataTable")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.AddGridviewFromDatatable("SOGRID","SOWIPTOFG")
+	'setting last action
+	F.Intrinsic.Debug.SetLA("Setting GridView Properties")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetGridviewProperty("SOGRID","OptionsSelectionEnableAppearanceFocusedRow",False)
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetGridviewProperty("SOGRID","ColumnPanelRowHeight","29")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetGridviewProperty("SOGRID","OptionsViewRowAutoHeight",True)
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetGridviewProperty("SOGRID","Showgrouppanel",True)
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetGridviewProperty("SOGRID","AllowFilter",True)
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetGridviewProperty("SOGRID","AllowSort",True)
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetGridviewProperty("SOGRID","OptionsSelectionEnableAppearanceFocusedRow",False)
+	'setting last action
+	F.Intrinsic.Debug.SetLA("Setting Column Properties")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Order_No","Caption","Sales Order")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Order_No","ReadOnly",True)
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Order_No","AllowEdit",False)
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Record_No","Caption","SO Line")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Record_No","ReadOnly",True)
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Record_No","AllowEdit",False)
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Product_Line","Caption","PL")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Product_Line","ReadOnly",True)
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Product_Line","AllowEdit",False)
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Part","ReadOnly",True)
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Part","AllowEdit",False)
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Description","ReadOnly",True)
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Description","AllowEdit",False)
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Code_Sort","ReadOnly",True)
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Code_Sort","AllowEdit",False)
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Code_Sort","Caption","Sort Code")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Job","ReadOnly",True)
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Job","AllowEdit",False)
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Suffix","ReadOnly",True)
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Suffix","AllowEdit",False)
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Qty_Ordered","Caption","Qty Ordered")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Qty_Ordered","ReadOnly",True)
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Qty_Ordered","AllowEdit",False)
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Qty_Scanned","Caption","Qty Scanned")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Qty_Scanned","ReadOnly",True)
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Qty_Scanned","AllowEdit",False)
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","To_Bin","Caption","To Bin")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","To_Bin","ReadOnly",False)
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","To_Bin","AllowEdit",True)
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","WIPToFG","ReadOnly",True)
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","WIPToFG","AllowEdit",False)
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","WIPToFG","Caption","WIP To FG")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","WIP_Qty","ReadOnly",True)
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","WIP_Qty","AllowEdit",False)
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","WIP_Qty","Caption","WIP Qty")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Default_Bin","ReadOnly",False)
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Default_Bin","AllowEdit",True)
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Default_Bin","Caption","Default Bin")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Inv_Qty","ReadOnly",True)
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Inv_Qty","AllowEdit",False)
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Inv_Qty","Caption","Inv Qty")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Flag_Bom","ReadOnly",True)
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Flag_Bom","AllowEdit",False)
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Flag_Bom","Caption","Flag Bom")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Flag_Bom","Visible",False)
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Inv_Qty","Caption","Inv Qty")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Source","ReadOnly",True)
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Source","AllowEdit",False)
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Source","Caption","Source Code")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Comment","ReadOnly",False)
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Comment","AllowEdit",True)
+
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Order_No","HeaderWordWrap","Wrap")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Record_No","HeaderWordWrap","Wrap")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Product_Line","HeaderWordWrap","Wrap")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Part","HeaderWordWrap","Wrap")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Description","HeaderWordWrap","Wrap")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Code_Sort","HeaderWordWrap","Wrap")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Job","HeaderWordWrap","Wrap")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Suffix","HeaderWordWrap","Wrap")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Qty_Ordered","HeaderWordWrap","Wrap")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Qty_Scanned","HeaderWordWrap","Wrap")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","To_Bin","HeaderWordWrap","Wrap")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","WIPToFG","HeaderWordWrap","Wrap")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","WIP_Qty","HeaderWordWrap","Wrap")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Default_Bin","HeaderWordWrap","Wrap")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Inv_Qty","HeaderWordWrap","Wrap")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Flag_Bom","HeaderWordWrap","Wrap")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Source","HeaderWordWrap","Wrap")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Comment","HeaderWordWrap","Wrap")
+	
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Order_No","HeaderFontSize","14")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Record_No","HeaderFontSize","14")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Product_Line","HeaderFontSize","14")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Part","HeaderFontSize","14")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Description","HeaderFontSize","14")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Code_Sort","HeaderFontSize","14")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Job","HeaderFontSize","14")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Suffix","HeaderFontSize","14")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Qty_Ordered","HeaderFontSize","14")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Qty_Scanned","HeaderFontSize","14")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","To_Bin","HeaderFontSize","14")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","WIPToFG","HeaderFontSize","14")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","WIP_Qty","HeaderFontSize","14")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Default_Bin","HeaderFontSize","14")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Inv_Qty","HeaderFontSize","14")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Flag_Bom","HeaderFontSize","14")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Source","HeaderFontSize","14")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Comment","HeaderFontSize","14")
+	
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Order_No","CellFontSize","13")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Record_No","CellFontSize","13")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Product_Line","CellFontSize","13")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Part","CellFontSize","13")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Description","CellFontSize","13")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Code_Sort","CellFontSize","13")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Job","CellFontSize","13")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Suffix","CellFontSize","13")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Qty_Ordered","CellFontSize","13")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Qty_Scanned","CellFontSize","13")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","To_Bin","CellFontSize","13")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","WIPToFG","CellFontSize","13")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","WIP_Qty","CellFontSize","13")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Default_Bin","CellFontSize","13")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Inv_Qty","CellFontSize","13")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Flag_Bom","CellFontSize","13")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Source","CellFontSize","13")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Comment","CellFontSize","13")
+	
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","WIPToFG","Width","65")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Record_No","Width","40")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Part","Width","100")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Description","Width","200")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Order_No","Width","75")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Record_No","Width","75")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","To_Bin","Width","75")
+	
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Order_No","CellHAlignment","Near")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Record_No","CellHAlignment","Near")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Product_Line","CellHAlignment","Near")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Part","CellHAlignment","Near")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Description","CellHAlignment","Near")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Code_Sort","CellHAlignment","Near")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Job","CellHAlignment","Near")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Suffix","CellHAlignment","Near")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Qty_Ordered","CellHAlignment","Center")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Qty_Scanned","CellHAlignment","Center")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","To_Bin","CellHAlignment","Near")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","WIPToFG","CellHAlignment","Center")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","WIP_Qty","CellHAlignment","Center")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Default_Bin","CellHAlignment","Near")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Inv_Qty","CellHAlignment","Center")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Flag_Bom","CellHAlignment","Center")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Source","CellHAlignment","Near")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Comment","CellHAlignment","Near")
+	
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Order_No","HeaderHAlignment","Near")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Record_No","HeaderHAlignment","Near")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Product_Line","HeaderHAlignment","Near")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Part","HeaderHAlignment","Near")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Description","HeaderHAlignment","Near")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Code_Sort","HeaderHAlignment","Near")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Job","HeaderHAlignment","Near")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Suffix","HeaderHAlignment","Near")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Qty_Ordered","HeaderHAlignment","Center")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Qty_Scanned","HeaderHAlignment","Center")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","To_Bin","HeaderHAlignment","Near")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","WIPToFG","HeaderHAlignment","Center")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","WIP_Qty","HeaderHAlignment","Center")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Default_Bin","HeaderHAlignment","Near")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Inv_Qty","HeaderHAlignment","Center")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Flag_Bom","HeaderHAlignment","Center")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Source","HeaderHAlignment","Near")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Comment","HeaderHAlignment","Near")
+	
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Order_No","HeaderBackColor","Green")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Order_No","HeaderForeColor","White")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Record_No","HeaderBackColor","Green")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Record_No","HeaderForeColor","White")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Product_Line","HeaderBackColor","Green")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Product_Line","HeaderForeColor","White")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Part","HeaderBackColor","Green")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Part","HeaderForeColor","White")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Description","HeaderBackColor","Green")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Description","HeaderForeColor","White")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Code_Sort","HeaderBackColor","Green")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Code_Sort","HeaderForeColor","White")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Job","HeaderBackColor","Green")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Job","HeaderForeColor","White")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Suffix","HeaderBackColor","Green")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Suffix","HeaderForeColor","White")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Qty_Ordered","HeaderBackColor","Green")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Qty_Ordered","HeaderForeColor","White")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Qty_Scanned","HeaderBackColor","Green")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Qty_Scanned","HeaderForeColor","White")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","To_Bin","HeaderBackColor","Green")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","To_Bin","HeaderForeColor","White")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","WIPToFG","HeaderBackColor","Green")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","WIPToFG","HeaderForeColor","White")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","WIP_Qty","HeaderBackColor","Green")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","WIP_Qty","HeaderForeColor","White")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Default_Bin","HeaderBackColor","Green")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Default_Bin","HeaderForeColor","White")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Inv_Qty","HeaderBackColor","Green")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Inv_Qty","HeaderForeColor","White")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Flag_Bom","HeaderBackColor","Green")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Flag_Bom","HeaderForeColor","White")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Source","HeaderBackColor","Green")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Source","HeaderForeColor","White")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Comment","HeaderBackColor","Green")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetColumnProperty("SOGRID","Comment","HeaderForeColor","White")
+	
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.ColumnEdit("SOGRID","To_Bin","ComboBox",V.Local.sBin)
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.ColumnEdit("SOGRID","Default_Bin","ComboBox",V.Local.sBin)
+	'setting last action
+	F.Intrinsic.Debug.SetLA("Setting Style Format Conditions for Coloring Grid")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.AddStyleFormatCondition("SOGRID","Qty_Scanned","ParentRed","Equal","0")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetStyleFormatConditionProperty("SOGRID","Qty_Scanned","ParentRed","BackColor","#fd6464")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetStyleFormatConditionProperty("SOGRID","Qty_Scanned","ParentRed","ApplyToRow",True)
+	
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.AddStyleFormatCondition("SOGRID","Qty_Scanned","ParentYellow","Expression","[Qty_Scanned] > 0")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetStyleFormatConditionProperty("SOGRID","Qty_Scanned","ParentYellow","BackColor","#EDFD73")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetStyleFormatConditionProperty("SOGRID","Qty_Scanned","ParentYellow","ApplyToRow",True)
+	
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.AddStyleFormatCondition("SOGRID","Qty_Scanned","ParentGreen","Expression","[Qty_Scanned] = [Qty_Ordered]")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetStyleFormatConditionProperty("SOGRID","Qty_Scanned","ParentGreen","BackColor","#64fd64")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetStyleFormatConditionProperty("SOGRID","Qty_Scanned","ParentGreen","ApplyToRow",True)
+	
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.AddStyleFormatCondition("SOGRID","WIP_Qty","ParentBlue","Expression","[WIP_Qty] = [Qty_Ordered]")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetStyleFormatConditionProperty("SOGRID","WIP_Qty","ParentBlue","BackColor","#457df4")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetStyleFormatConditionProperty("SOGRID","WIP_Qty","ParentBlue","ApplyToRow",True)
+	
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.AddStyleFormatCondition("SOGRID","WIP_Qty","ParentBlueish","Expression","([Qty_Ordered] > [WIP_Qty]) and [WIP_Qty] > 0")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetStyleFormatConditionProperty("SOGRID","WIP_Qty","ParentBlueish","BackColor","#42f4bf")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetStyleFormatConditionProperty("SOGRID","WIP_Qty","ParentBlueish","ApplyToRow",True)
+	
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.AddStyleFormatCondition("SOGRID","Flag_Bom","ParentWhite","Equal","Y")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetStyleFormatConditionProperty("SOGRID","Flag_Bom","ParentWhite","BackColor","#ffffff")
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.SetStyleFormatConditionProperty("SOGRID","Flag_Bom","ParentWhite","ApplyToRow",True)
+
+	F.Intrinsic.String.Build("{0}\Custom\4826\{1}_4826_WIPTOFG.txt",V.Caller.GlobalDir,V.Caller.User,V.Local.sFile)
+
+	F.Intrinsic.File.Exists(V.Local.sFile,V.Local.bRet)
+	F.Intrinsic.Control.If(V.Local.bRet)
+		F.Intrinsic.File.File2String(V.Local.sFile,V.Local.sReturn)
+		Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.Deserialize(V.Local.sReturn)
+	F.Intrinsic.Control.EndIf
+	
+	Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.MainView("SOGRID")
+	
+'	Gui.Form_Comments.GsGridControlViewComments.AddGridviewFromDatatable("ViewComments","ViewComments")
+'	
+'	Gui.Form_Comments.GsGridControlViewComments.SetGridviewProperty("ViewComments","Enableappearanceevenrow",True)
+'	Gui.Form_Comments.GsGridControlViewComments.SetGridviewProperty("ViewComments","Editable",False)
+'	Gui.Form_Comments.GsGridControlViewComments.SetGridviewProperty("ViewComments","Readonly",True)
+'	
+'	Gui.Form_Comments.GsGridControlViewComments.SetColumnProperty("ViewComments","Rec_No","Visible",False)
+'	Gui.Form_Comments.GsGridControlViewComments.SetColumnProperty("ViewComments","Rec_No","HeaderBackColor","Green")
+'	Gui.Form_Comments.GsGridControlViewComments.SetColumnProperty("ViewComments","Rec_No","HeaderForeColor","White")
+'	Gui.Form_Comments.GsGridControlViewComments.SetColumnProperty("ViewComments","Rec_No","HeaderWordWrap","Wrap")
+'	Gui.Form_Comments.GsGridControlViewComments.SetColumnProperty("ViewComments","Rec_No","HeaderFontSize","14")
+'	Gui.Form_Comments.GsGridControlViewComments.SetColumnProperty("ViewComments","Rec_No","CellFontSize","13")
+'	Gui.Form_Comments.GsGridControlViewComments.SetColumnProperty("ViewComments","Rec_No","CellHAlignment","Center")
+'	Gui.Form_Comments.GsGridControlViewComments.SetColumnProperty("ViewComments","Rec_No","HeaderHAlignment","Center")
+'	Gui.Form_Comments.GsGridControlViewComments.SetColumnProperty("ViewComments","Order_No","Visible",False)
+'	Gui.Form_Comments.GsGridControlViewComments.SetColumnProperty("ViewComments","Order_No","HeaderBackColor","Green")
+'	Gui.Form_Comments.GsGridControlViewComments.SetColumnProperty("ViewComments","Order_No","HeaderForeColor","White")
+'	Gui.Form_Comments.GsGridControlViewComments.SetColumnProperty("ViewComments","Order_No","HeaderWordWrap","Wrap")
+'	Gui.Form_Comments.GsGridControlViewComments.SetColumnProperty("ViewComments","Order_No","HeaderFontSize","14")
+'	Gui.Form_Comments.GsGridControlViewComments.SetColumnProperty("ViewComments","Order_No","CellFontSize","13")
+'	Gui.Form_Comments.GsGridControlViewComments.SetColumnProperty("ViewComments","Order_No","CellHAlignment","Near")
+'	Gui.Form_Comments.GsGridControlViewComments.SetColumnProperty("ViewComments","Order_No","HeaderHAlignment","Near")
+'	Gui.Form_Comments.GsGridControlViewComments.SetColumnProperty("ViewComments","Record_No","Visible",False)
+'	Gui.Form_Comments.GsGridControlViewComments.SetColumnProperty("ViewComments","Record_No","HeaderBackColor","Green")
+'	Gui.Form_Comments.GsGridControlViewComments.SetColumnProperty("ViewComments","Record_No","HeaderForeColor","White")
+'	Gui.Form_Comments.GsGridControlViewComments.SetColumnProperty("ViewComments","Record_No","HeaderWordWrap","Wrap")
+'	Gui.Form_Comments.GsGridControlViewComments.SetColumnProperty("ViewComments","Record_No","HeaderFontSize","14")
+'	Gui.Form_Comments.GsGridControlViewComments.SetColumnProperty("ViewComments","Record_No","CellFontSize","13")
+'	Gui.Form_Comments.GsGridControlViewComments.SetColumnProperty("ViewComments","Record_No","CellHAlignment","Near")
+'	Gui.Form_Comments.GsGridControlViewComments.SetColumnProperty("ViewComments","Record_No","HeaderHAlignment","Near")
+'	Gui.Form_Comments.GsGridControlViewComments.SetColumnProperty("ViewComments","Comment","HeaderBackColor","Green")
+'	Gui.Form_Comments.GsGridControlViewComments.SetColumnProperty("ViewComments","Comment","HeaderForeColor","White")
+'	Gui.Form_Comments.GsGridControlViewComments.SetColumnProperty("ViewComments","Comment","HeaderWordWrap","Wrap")
+'	Gui.Form_Comments.GsGridControlViewComments.SetColumnProperty("ViewComments","Comment","HeaderFontSize","14")
+'	Gui.Form_Comments.GsGridControlViewComments.SetColumnProperty("ViewComments","Comment","CellFontSize","13")
+'	Gui.Form_Comments.GsGridControlViewComments.SetColumnProperty("ViewComments","Comment","CellHAlignment","Near")
+'	Gui.Form_Comments.GsGridControlViewComments.SetColumnProperty("ViewComments","Comment","HeaderHAlignment","Near")
+'	
+'	F.Intrinsic.String.Build("{0}\Custom\4826\{1}_4826_ViewComments.txt",V.Caller.GlobalDir,V.Caller.User,V.Local.sFile)
+
+'	F.Intrinsic.File.Exists(V.Local.sFile,V.Local.bRet)
+'	F.Intrinsic.Control.If(V.Local.bRet)
+'		F.Intrinsic.File.File2String(V.Local.sFile,V.Local.sReturn)
+'		Gui.Form_Comments.GsGridControlViewComments.Deserialize(V.Local.sReturn)
+'	F.Intrinsic.Control.EndIf
+'	
+'	Gui.Form_Comments.GsGridControlViewComments.MainView("ViewComments")
+'	
+'	Gui.Form_Comments.GsGridControlEditComments.AddGridviewFromDatatable("EditComments","EditComments")
+'	
+'	Gui.Form_Comments.GsGridControlEditComments.SetGridviewProperty("EditComments","Enableappearanceevenrow",True)
+'	
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Rec_No","Visible",False)
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Rec_No","HeaderBackColor","Green")
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Rec_No","HeaderForeColor","White")
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Rec_No","HeaderWordWrap","Wrap")
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Rec_No","HeaderFontSize","14")
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Rec_No","CellFontSize","13")
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Rec_No","CellHAlignment","Center")
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Rec_No","HeaderHAlignment","Center")
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Rec_No","AllowEdit",False)
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Rec_No","ReadOnly",True)
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Order_No","Visible",False)
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Order_No","HeaderBackColor","Green")
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Order_No","HeaderForeColor","White")
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Order_No","HeaderWordWrap","Wrap")
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Order_No","HeaderFontSize","14")
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Order_No","CellFontSize","13")
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Order_No","CellHAlignment","Near")
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Order_No","HeaderHAlignment","Near")
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Order_No","AllowEdit",False)
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Order_No","ReadOnly",True)
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Record_No","Visible",False)
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Record_No","HeaderBackColor","Green")
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Record_No","HeaderForeColor","White")
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Record_No","HeaderWordWrap","Wrap")
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Record_No","HeaderFontSize","14")
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Record_No","CellFontSize","13")
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Record_No","CellHAlignment","Near")
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Record_No","HeaderHAlignment","Near")
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Record_No","AllowEdit",False)
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Record_No","ReadOnly",True)
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Comment","HeaderBackColor","Green")
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Comment","HeaderForeColor","White")
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Comment","HeaderWordWrap","Wrap")
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Comment","HeaderFontSize","14")
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Comment","CellFontSize","13")
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Comment","CellHAlignment","Near")
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Comment","HeaderHAlignment","Near")
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Comment","AllowEdit",True)
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Comment","ReadOnly",False)
+'	Gui.Form_Comments.GsGridControlEditComments.ColumnEdit("EditComments","Button","EditorButton","Delete")
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Button","HeaderBackColor","Green")
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Button","HeaderForeColor","White")
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Button","HeaderWordWrap","Wrap")
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Button","HeaderFontSize","14")
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Button","CellFontSize","13")
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Button","CellHAlignment","Center")
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Button","HeaderHAlignment","Center")
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Button","Caption"," ")
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Button","AllowEdit",False)
+'	Gui.Form_Comments.GsGridControlEditComments.SetColumnProperty("EditComments","Button","ReadOnly",True)
+'	
+'	F.Intrinsic.String.Build("{0}\Custom\4826\{1}_4826_EditComments.txt",V.Caller.GlobalDir,V.Caller.User,V.Local.sFile)
+
+'	F.Intrinsic.File.Exists(V.Local.sFile,V.Local.bRet)
+'	F.Intrinsic.Control.If(V.Local.bRet)
+'		F.Intrinsic.File.File2String(V.Local.sFile,V.Local.sReturn)
+'		Gui.Form_Comments.GsGridControlEditComments.Deserialize(V.Local.sReturn)
+'	F.Intrinsic.Control.EndIf
+'	
+'	Gui.Form_Comments.GsGridControlEditComments.MainView("EditComments")
+	
+	Gui.FormItemMaster.GsGridControlItemMaster.AddGridviewFromDatatable("ItemMaster","ItemMaster")
+	
+	Gui.FormItemMaster.GsGridControlItemMaster.SetGridviewProperty("ItemMaster","Enableappearanceevenrow",True)
+'	Gui.FormItemMaster.GsGridControlItemMaster.SetGridviewProperty("ItemMaster","Enableappearanceoddrow",True)
+	
+	Gui.FormItemMaster.GsGridControlItemMaster.SetColumnProperty("ItemMaster","Part","HeaderBackColor","Green")
+	Gui.FormItemMaster.GsGridControlItemMaster.SetColumnProperty("ItemMaster","Part","HeaderForeColor","White")
+	Gui.FormItemMaster.GsGridControlItemMaster.SetColumnProperty("ItemMaster","Part","HeaderWordWrap","Wrap")
+	Gui.FormItemMaster.GsGridControlItemMaster.SetColumnProperty("ItemMaster","Part","HeaderFontSize","14")
+	Gui.FormItemMaster.GsGridControlItemMaster.SetColumnProperty("ItemMaster","Part","CellFontSize","13")
+	Gui.FormItemMaster.GsGridControlItemMaster.SetColumnProperty("ItemMaster","Part","CellHAlignment","Center")
+	Gui.FormItemMaster.GsGridControlItemMaster.SetColumnProperty("ItemMaster","Part","HeaderHAlignment","Center")
+	Gui.FormItemMaster.GsGridControlItemMaster.SetColumnProperty("ItemMaster","Lot","HeaderBackColor","Green")
+	Gui.FormItemMaster.GsGridControlItemMaster.SetColumnProperty("ItemMaster","Lot","HeaderForeColor","White")
+	Gui.FormItemMaster.GsGridControlItemMaster.SetColumnProperty("ItemMaster","Lot","HeaderWordWrap","Wrap")
+	Gui.FormItemMaster.GsGridControlItemMaster.SetColumnProperty("ItemMaster","Lot","HeaderFontSize","14")
+	Gui.FormItemMaster.GsGridControlItemMaster.SetColumnProperty("ItemMaster","Lot","CellFontSize","13")
+	Gui.FormItemMaster.GsGridControlItemMaster.SetColumnProperty("ItemMaster","Lot","CellHAlignment","Near")
+	Gui.FormItemMaster.GsGridControlItemMaster.SetColumnProperty("ItemMaster","Lot","HeaderHAlignment","Near")
+	Gui.FormItemMaster.GsGridControlItemMaster.SetColumnProperty("ItemMaster","Bin","HeaderBackColor","Green")
+	Gui.FormItemMaster.GsGridControlItemMaster.SetColumnProperty("ItemMaster","Bin","HeaderForeColor","White")
+	Gui.FormItemMaster.GsGridControlItemMaster.SetColumnProperty("ItemMaster","Bin","HeaderWordWrap","Wrap")
+	Gui.FormItemMaster.GsGridControlItemMaster.SetColumnProperty("ItemMaster","Bin","HeaderFontSize","14")
+	Gui.FormItemMaster.GsGridControlItemMaster.SetColumnProperty("ItemMaster","Bin","CellFontSize","13")
+	Gui.FormItemMaster.GsGridControlItemMaster.SetColumnProperty("ItemMaster","Bin","CellHAlignment","Near")
+	Gui.FormItemMaster.GsGridControlItemMaster.SetColumnProperty("ItemMaster","Bin","HeaderHAlignment","Near")
+	Gui.FormItemMaster.GsGridControlItemMaster.SetColumnProperty("ItemMaster","Heat","HeaderBackColor","Green")
+	Gui.FormItemMaster.GsGridControlItemMaster.SetColumnProperty("ItemMaster","Heat","HeaderForeColor","White")
+	Gui.FormItemMaster.GsGridControlItemMaster.SetColumnProperty("ItemMaster","Heat","HeaderWordWrap","Wrap")
+	Gui.FormItemMaster.GsGridControlItemMaster.SetColumnProperty("ItemMaster","Heat","HeaderFontSize","14")
+	Gui.FormItemMaster.GsGridControlItemMaster.SetColumnProperty("ItemMaster","Heat","CellFontSize","13")
+	Gui.FormItemMaster.GsGridControlItemMaster.SetColumnProperty("ItemMaster","Heat","CellHAlignment","Near")
+	Gui.FormItemMaster.GsGridControlItemMaster.SetColumnProperty("ItemMaster","Heat","HeaderHAlignment","Near")
+	Gui.FormItemMaster.GsGridControlItemMaster.SetColumnProperty("ItemMaster","Serial_Number","HeaderBackColor","Green")
+	Gui.FormItemMaster.GsGridControlItemMaster.SetColumnProperty("ItemMaster","Serial_Number","HeaderForeColor","White")
+	Gui.FormItemMaster.GsGridControlItemMaster.SetColumnProperty("ItemMaster","Serial_Number","HeaderWordWrap","Wrap")
+	Gui.FormItemMaster.GsGridControlItemMaster.SetColumnProperty("ItemMaster","Serial_Number","HeaderFontSize","14")
+	Gui.FormItemMaster.GsGridControlItemMaster.SetColumnProperty("ItemMaster","Serial_Number","CellFontSize","13")
+	Gui.FormItemMaster.GsGridControlItemMaster.SetColumnProperty("ItemMaster","Serial_Number","CellHAlignment","Near")
+	Gui.FormItemMaster.GsGridControlItemMaster.SetColumnProperty("ItemMaster","Serial_Number","HeaderHAlignment","Near")
+	Gui.FormItemMaster.GsGridControlItemMaster.SetColumnProperty("ItemMaster","Serial_Number","Caption","Serial Number")
+	Gui.FormItemMaster.GsGridControlItemMaster.SetColumnProperty("ItemMaster","Quantity","HeaderBackColor","Green")
+	Gui.FormItemMaster.GsGridControlItemMaster.SetColumnProperty("ItemMaster","Quantity","HeaderForeColor","White")
+	Gui.FormItemMaster.GsGridControlItemMaster.SetColumnProperty("ItemMaster","Quantity","HeaderWordWrap","Wrap")
+	Gui.FormItemMaster.GsGridControlItemMaster.SetColumnProperty("ItemMaster","Quantity","HeaderFontSize","14")
+	Gui.FormItemMaster.GsGridControlItemMaster.SetColumnProperty("ItemMaster","Quantity","CellFontSize","13")
+	Gui.FormItemMaster.GsGridControlItemMaster.SetColumnProperty("ItemMaster","Quantity","CellHAlignment","Center")
+	Gui.FormItemMaster.GsGridControlItemMaster.SetColumnProperty("ItemMaster","Quantity","HeaderHAlignment","Center")
+	
+	F.Intrinsic.String.Build("{0}\Custom\4826\{1}_4826_ItemMaster.txt",V.Caller.GlobalDir,V.Caller.User,V.Local.sFile)
+
+	F.Intrinsic.File.Exists(V.Local.sFile,V.Local.bRet)
+	F.Intrinsic.Control.If(V.Local.bRet)
+		F.Intrinsic.File.File2String(V.Local.sFile,V.Local.sReturn)
+		Gui.FormItemMaster.GsGridControlItemMaster.Deserialize(V.Local.sReturn)
+	F.Intrinsic.Control.EndIf
+	
+	Gui.FormItemMaster.GsGridControlItemMaster.MainView("ItemMaster")
+	
+	F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}Last Action: {5}","GCG_4826_SO_WIPTOFG.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.LastAction,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub(FormSOWIPFG_UnLoad)
+	F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+Program.Sub.Set_Grid_Properties.End
+
+Program.Sub.txtSalesOrder_KeyPressEnter.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare(String,"")
+	
+	F.Intrinsic.Debug.SetLA("Checking if Sales Order is not blank")
+	F.Intrinsic.Control.If(V.Screen.FormSOWIPFG!txtSalesOrder.Text,<>,"")
+		F.Intrinsic.Control.CallSub(Populate_Grid)
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}Last Action: {5}","GCG_4826_SO_WIPTOFG.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.LastAction,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub(FormSOWIPFG_UnLoad)
+	F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+Program.Sub.txtSalesOrder_KeyPressEnter.End
+
+Program.Sub.Populate_Grid.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare(String,"")
+	V.Local.sSql.Declare(String,"")
+	V.Local.iRet.Declare(Long,0)
+	V.Local.i.Declare(Long,0)
+	V.Local.sRet.Declare(String,"")
+	
+	Gui.FormSOWIPFG.txtSalesOrder.Enabled(False)
+	Gui.FormSOWIPFG.cmdSOBrowser.Enabled(False)
+	
+	F.ODBC.Connection!Con.OpenCompanyConnection
+	
+	'not working will uncomments once I'm able to create a soft lock on the Sales Order
+	'RLK 7/3/2018
+'	F.Intrinsic.Debug.SetLA("Reading/Destroying/Creating Soft Lock")
+'	F.Global.General.ReadSoftLock("SO",V.Global.sOrder.Trim,V.Local.iRet)
+'	F.Intrinsic.Control.If(V.Local.iRet,=,1)
+'		F.Global.General.DestroySoftLock("SO",V.Global.sOrder.Trim,V.Local.iRet)
+'	F.Intrinsic.Control.EndIf
+'	
+'	V.Global.sOrder.Set(V.Screen.FormSOWIPFG!txtSalesOrder.Text)
+'	
+'	'creating new lock for current selected SO
+'	F.Global.General.ReadSoftLock("SO",V.Global.sOrder.Trim,V.Local.iRet)
+'	F.Intrinsic.Control.If(V.Local.iRet,=,1)
+'		F.Intrinsic.UI.Msgbox("Sales Order Currently Locked","Attention")
+'		F.Data.DataTable.DeleteRow("SOWIPTOFG")
+'		F.Data.DataTable.AcceptChanges("SOWIPTOFG")
+'		F.Intrinsic.Control.ExitSub
+'	F.Intrinsic.Control.Else
+'		
+'		F.Global.General.CreateSoftLock("SO",V.Global.sOrder.Trim,V.Local.iRet)
+'	F.Intrinsic.Control.EndIf
+	
+	'setting last action
+	F.Intrinsic.Debug.SetLA("Querying Data to Populate Grid")
+	F.Intrinsic.String.Build("Select a.Order_No, a.Record_No, a.Product_Line, rtrim(a.Part) as Part, a.Description, '' as Code_Sort, '' as Source, b.Job, b.Suffix,  Cast(a.Qty_Ordered as Double) as Qty_Ordered, isnull(Qty_Scanned,Cast(0 as Double)) as Qty_Scanned, isnull(rtrim(To_Bin),'') as To_Bin, isnull(WIPToFG,'N') AS WIPToFG,isnull(WIP_Qty,Cast(0 as Double)) as WIP_Qty, isnull(c.Default_Bin,'') as Default_Bin, isnull(Inv_Qty,Cast(0 as Double)) as Inv_Qty, c.Comment as Comment, Flag_Bom From V_Order_Lines a Left Join V_Order_To_Wo b On a.Order_No = b.Order_No and a.Record_No = b.Order_Line Left Join GCG_4826_SO_WIPTOFG c on a.Order_No = c.Order_No and a.Record_No = c.Record_No Where a.Order_NO = '{0}' and a.Part In(Select Part From V_Inventory_Mst2 Where Code_Source = 'M' or Code_Source = 'F') Order By a.Record_No",V.Screen.FormSOWIPFG!txtSalesOrder.Text,V.Local.sSql)
+	F.Data.DataTable.CreateFromSQL("SOTemp","Con",V.Local.sSql)
+	
+	F.Data.DataView.Create("SOTemp","VSOTemp",22,"Default_Bin <> ''","")
+	F.Intrinsic.Control.If(V.DataView.SOTemp!VSOTemp.RowCount--,=,-1)
+		F.Data.Dictionary.CreateFromSQL("Bin","con","Select rtrim(Part) as Part, rtrim(Bin) as Default_Bin From V_Inventory_Mstr")
+		F.Data.Dictionary.SetDefaultReturn("Bin","")
+		F.Data.DataTable.FillFromDictionary("SOTemp","Bin","Part","Default_Bin")
+		F.Data.Dictionary.Close("Bin")
+	F.Intrinsic.Control.EndIf
+	
+	F.Data.DataView.Close("SOTemp","VSOTemp")
+	
+	F.Data.Dictionary.CreateFromSQL("InvQty","con","Select rtrim(Part) as Part, Qty_OnHand as Inv_Qty From V_Inventory_Mstr")
+	F.Data.Dictionary.SetDefaultReturn("InvQty",0)
+	F.Data.DataTable.FillFromDictionary("SOTemp","InvQty","Part","Inv_Qty")
+	F.Data.Dictionary.Close("InvQty")
+	
+	F.Data.Dictionary.CreateFromSQL("InvSort","con","Select rtrim(Part) as Part, Code_Sort From V_Inventory_Mstr")
+	F.Data.Dictionary.SetDefaultReturn("InvSort",0)
+	F.Data.DataTable.FillFromDictionary("SOTemp","InvSort","Part","Code_Sort")
+	F.Data.Dictionary.Close("InvSort")
+	
+	F.Data.Dictionary.CreateFromSQL("SC","con","Select rtrim(Part), IF(Code_Source = 'M','MTS',IF(Code_Source = 'F','MTJ',' ')) as Source From V_Inventory_Mst2 Where Code_Source = 'F' or Code_Source = 'M'")
+	F.Data.Dictionary.SetDefaultReturn("SC","")
+	F.Data.DataTable.FillFromDictionary("SOTemp","SC","Part","Source")
+	F.Data.Dictionary.Close("SC")
+	
+	F.ODBC.Connection!Con.Close
+	'setting last action
+	F.Intrinsic.Debug.SetLA("Deleting old records from datatable that's used for displaying records to the grid")
+	F.Data.DataTable.DeleteRow("SOWIPTOFG")
+	F.Data.DataTable.AcceptChanges("SOWIPTOFG")
+	
+	F.Data.DataTable.Merge("SOTemp","SOWIPTOFG",False,4)
+	
+	F.Data.DataTable.Close("SOTemp")
+	
+	'This only workds if seting backcolor with SetRowAppearance
+'	F.Intrinsic.Control.For(V.Local.i,0,V.DataTable.SOWIPTOFG.RowCount--,1)
+'		Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.GetRowAppearance("SOGRID",V.Local.i,"BackColor",V.Local.sRet)
+'	F.Intrinsic.Control.Next(V.Local.i)
+
+	Gui.FormSOWIPFG.txtSalesOrder.Enabled(True)
+	Gui.FormSOWIPFG.cmdSOBrowser.Enabled(True)
+	
+	Gui.FormSOWIPFG.txtPart/WO.SetFocus
+	Gui.FormSOWIPFG.txtPart/WO.SelectAll
+	
+	F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}Last Action: {5}","GCG_4826_SO_WIPTOFG.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.LastAction,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub(FormSOWIPFG_UnLoad)
+	F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+Program.Sub.Populate_Grid.End
+
+Program.Sub.txtPart_GotFocus.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare(String,"")
+	
+	F.Intrinsic.Debug.SetLA("Select all Part text")
+	'selecting all text
+	gui.FormSOWIPFG.txtPart/WO.SelectAll
+	
+	F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}Last Action: {5}","GCG_4826_SO_WIPTOFG.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.LastAction,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub(FormSOWIPFG_UnLoad)
+	F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+Program.Sub.txtPart_GotFocus.End
+
+Program.Sub.txtPart_KeyPressEnter.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare(String,"")
+	V.Local.sScanValue.Declare(String,"")
+	
+	Gui.FormSOWIPFG.cmdWIPTOFG.Enabled(False)
+	F.Intrinsic.Debug.SetLA("Checking if Part or WO was Scanned")
+	'checking if a sales order has been selected.
+	F.Intrinsic.Control.If(V.DataTable.SOWIPTOFG.RowCount--,<>,-1)
+		'check if its a part or job suffix that has been scanned
+		'job suffix will be have $% and part number will not
+		V.Local.sScanValue.Set(V.Screen.FormSOWIPFG!txtPart/WO.Text)
+		F.Intrinsic.Control.If(V.Local.sScanValue.Left2,=,"$%")
+			F.Intrinsic.String.Split(V.Local.sScanValue,"$%",V.Local.sScanValue)
+			Gui.FormSOWIPFG.txtPart/WO.Text(V.Local.sScanValue(1).UCase)
+			Gui.FormSOWIPFG.txtPart/WO.Enabled(False)
+			F.Intrinsic.Control.CallSub(JobSuffix_Scan_Process)
+			Gui.FormSOWIPFG.txtPart/WO.Enabled(True)
+		F.Intrinsic.Control.Else
+			Gui.FormSOWIPFG.txtPart/WO.Text(V.Local.sScanValue.UCase)
+			Gui.FormSOWIPFG.txtPart/WO.Enabled(False)
+			F.Intrinsic.Control.CallSub(Part_Scan_Process)
+			Gui.FormSOWIPFG.txtPart/WO.Enabled(True)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.BlockEvents
+	Gui.FormSOWIPFG.cmdWIPTOFG.Enabled(True)
+	Gui.FormSOWIPFG.txtPart/WO.SetFocus
+	Gui.FormSOWIPFG.txtPart/WO.SelectAll
+	F.Intrinsic.Control.UnBlockEvents
+	
+	F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}Last Action: {5}","GCG_4826_SO_WIPTOFG.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.LastAction,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub(FormSOWIPFG_UnLoad)
+	F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+Program.Sub.txtPart_KeyPressEnter.End
+
+Program.Sub.Create_ContextMenu.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare(String,"")
+	
+	F.Intrinsic.Debug.SetLA("Creating Context Menu")
+	'creating context menu
+	Gui.FormSOWIPFG..ContextMenuCreate("QtyOverride")
+	'adding the menu items
+	Gui.FormSOWIPFG..ContextMenuAddItem("QtyOverride","Add Qty",0,"Add Qty")
+	Gui.FormSOWIPFG..ContextMenuAddItem("QtyOverride","Sep",3)
+	Gui.FormSOWIPFG..ContextMenuAddItem("QtyOverride","Remove Qty",0,"Remove Qty")
+	Gui.FormSOWIPFG..ContextMenuAddItem("QtyOverride","Sep",3)
+	Gui.FormSOWIPFG..ContextMenuAddItem("QtyOverride","View Qty",0,"View Bin Quantities")
+'	Gui.FormSOWIPFG..ContextMenuAddItem("QtyOverride","Sep",3)
+'	Gui.FormSOWIPFG..ContextMenuAddItem("QtyOverride","Add Comment",0,"Add Comment")
+'	Gui.FormSOWIPFG..ContextMenuAddItem("QtyOverride","Sep",3)
+'	Gui.FormSOWIPFG..ContextMenuAddItem("QtyOverride","View Comments",0,"View Comments")
+'	Gui.FormSOWIPFG..ContextMenuAddItem("QtyOverride","Sep",3)
+'	Gui.FormSOWIPFG..ContextMenuAddItem("QtyOverride","Delete/Edit Comments",0,"Delete/Edit Comments")
+	Gui.FormSOWIPFG..ContextMenuAddItem("QtyOverride","Sep",3)
+	Gui.FormSOWIPFG..ContextMenuAddItem("QtyOverride","Label Override",0,"Label Override")
+	'attaching MenuClick Subroutine to Qty Override
+	Gui.FormSOWIPFG..ContextMenuSetItemEventHandler("QtyOverride","Add Qty",MenuClick)
+	Gui.FormSOWIPFG..ContextMenuSetItemEventHandler("QtyOverride","Remove Qty",MenuClick)
+ 	Gui.FormSOWIPFG..ContextMenuSetItemEventHandler("QtyOverride","View Qty",MenuClick)
+ 	Gui.FormSOWIPFG..ContextMenuSetItemEventHandler("QtyOverride","Label Override",MenuClick)
+' 	Gui.FormSOWIPFG..ContextMenuSetItemEventHandler("QtyOverride","Add Comment",MenuClick)
+' 	Gui.FormSOWIPFG..ContextMenuSetItemEventHandler("QtyOverride","View Comments",MenuClick)
+' 	Gui.FormSOWIPFG..ContextMenuSetItemEventHandler("QtyOverride","Delete/Edit Comments",MenuClick)
+ 	
+	F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}Last Action: {5}","GCG_4826_SO_WIPTOFG.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.LastAction,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub(FormSOWIPFG_UnLoad)
+	F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+Program.Sub.Create_ContextMenu.End
+
+Program.Sub.MenuClick.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare(String,"")
+	V.Local.sRet.Declare(String,"")
+	V.Local.iQty.Declare(Long,0)
+	V.Local.sSql.Declare(String,"")
+	V.Local.iRec_No.Declare(Long,0)
+	V.Local.sFile.Declare(String,"")
+	V.Local.bRet.Declare(Boolean,False)
+	V.Local.sReturn.Declare(String,"")
+	
+	F.Intrinsic.Debug.SetLA("Getting Selection from Context Menu")
+	F.Intrinsic.Control.SelectCase(V.Args.ItemName.UCase)
+		F.Intrinsic.Control.Case("ADD QTY")
+			F.Intrinsic.Debug.SetLA("Adding Qty to selected SO line")
+			Gui.FormSOWIPFG..Enabled(False)
+			gui.Form_QtyOverride.lblQtyRemain/Scanned.Caption("Qty Remaining")
+			Gui.Form_QtyOverride.lblQtyAdd/Remove.Caption("Qty Add")
+			F.Intrinsic.Math.Sub(V.DataTable.SOWIPTOFG(V.Global.iIndex).Qty_Ordered!FieldValLong,V.DataTable.SOWIPTOFG(V.Global.iIndex).Qty_Scanned!FieldValLong,V.Local.iQty)
+			F.Intrinsic.Control.If(V.Local.iQty,>,0)
+				F.Intrinsic.Control.BlockEvents
+				Gui.Form_QtyOverride.txtQtyOrdered/Scanned.Text(V.Local.iQty)
+				Gui.Form_QtyOverride.txtQtyAdd/Remove.Text(0)
+				Gui.Form_QtyOverride.txtQtyAdd/Remove.SetFocus
+				F.Intrinsic.Control.UnBlockEvents
+				Gui.Form_QtyOverride.cmdSubmit.Enabled(False)
+				Gui.Form_QtyOverride..Visible(True)
+				Gui.Form_QtyOverride..AlwaysOnTop(True)
+				Gui.Form_QtyOverride..AlwaysOnTop(False)
+				Gui.Form_QtyOverride..WaitForDismiss
+			F.Intrinsic.Control.EndIf
+			Gui.FormSOWIPFG..Enabled(True)
+			Gui.FormSOWIPFG..AlwaysOnTop(True)
+			Gui.FormSOWIPFG..AlwaysOnTop(False)
+			
+		F.Intrinsic.Control.Case("REMOVE QTY")
+			F.Intrinsic.Debug.SetLA("Removing Qty for selected SO line")
+			Gui.FormSOWIPFG..Enabled(False)
+			gui.Form_QtyOverride.lblQtyRemain/Scanned.Caption("Qty Scanned Not WIP")
+			Gui.Form_QtyOverride.lblQtyAdd/Remove.Caption("Qty Remove")
+			F.Intrinsic.Math.Sub(V.DataTable.SOWIPTOFG(V.Global.iIndex).Qty_Scanned!FieldValLong,V.DataTable.SOWIPTOFG(V.Global.iIndex).WIP_Qty!FieldValLong,V.Local.iQty)
+			F.Intrinsic.Control.If(V.Local.iQty,>,0)
+				F.Intrinsic.Control.BlockEvents
+				Gui.Form_QtyOverride.txtQtyOrdered/Scanned.Text(V.Local.iQty)
+				Gui.Form_QtyOverride.txtQtyAdd/Remove.Text(0)
+				Gui.Form_QtyOverride.txtQtyAdd/Remove.SetFocus
+				F.Intrinsic.Control.UnBlockEvents
+				Gui.Form_QtyOverride.cmdSubmit.Enabled(False)
+				Gui.Form_QtyOverride..Visible(True)
+				Gui.Form_QtyOverride..AlwaysOnTop(True)
+				Gui.Form_QtyOverride..AlwaysOnTop(False)
+				Gui.Form_QtyOverride..WaitForDismiss
+			F.Intrinsic.Control.EndIf
+			Gui.FormSOWIPFG..Enabled(True)
+			Gui.FormSOWIPFG..AlwaysOnTop(True)
+			Gui.FormSOWIPFG..AlwaysOnTop(False)
+			
+		F.Intrinsic.Control.Case("VIEW QTY")	
+			F.Intrinsic.Debug.SetLA("Showing Bin Quantities for selected SO line")
+			F.Intrinsic.String.Build("Select Part, Lot, Bin, Heat, Serial_Number, Cast(Quantity as Double) as Quantity From V_Item_Master Where Quantity > 0 and Part = '{0}'",V.DataTable.SOWIPTOFG(V.Global.iIndex).Part!FieldValTrim,V.Local.sSql)
+			F.ODBC.Connection!Con.OpenCompanyConnection
+			F.Data.DataTable.DeleteRow("ItemMaster")
+			F.Data.DataTable.AcceptChanges("ItemMaster")
+
+			F.Data.DataTable.CreateFromSQL("ItemMasterTemp","con",V.Local.sSql,True)
+			F.Data.DataTable.Merge("ItemMasterTemp","ItemMaster",False,4)
+			
+			F.Data.DataTable.Close("ItemMasterTemp")
+			
+			F.ODBC.Connection!Con.Close
+			
+			Gui.FormItemMaster..Visible(True)
+			
+'		F.Intrinsic.Control.Case("ADD COMMENT")
+'			F.Intrinsic.UI.InputBoxExt("Add Comment 255 Characters","","24*!*Add*!*Cancel")
+'			
+'			F.Intrinsic.Control.If(V.Ambient.AltBoxClick,=,3)
+'				F.Intrinsic.Control.If(V.Ambient.AltBoxVal.Trim,<>,"")
+'					F.ODBC.Connection!Con.OpenCompanyConnection
+'					F.ODBC.Connection!Con.GetID("GCG_4826_Comments","Rec_No",True,V.Local.iRec_No)
+'					F.ODBC.Connection!Con.OpenLocalRecordSetRW("rst","Select Rec_No, Order_No, Record_No, Comment From GCG_4826_Comments")
+'				
+'					F.ODBC.Con!rst.AddNew
+'				
+'					F.ODBC.Con!rst.Set!Rec_No(V.Local.iRec_No)
+'					F.ODBC.Con!rst.Set!Order_No(V.DataTable.SOWIPTOFG(V.Global.iIndex).Order_No!FieldValTrim)
+'					F.ODBC.Con!rst.Set!Record_No(V.DataTable.SOWIPTOFG(V.Global.iIndex).Record_No!FieldValTrim)
+'					F.ODBC.Con!rst.Set!Comment(V.Ambient.AltBoxVal.Trim)
+'					F.ODBC.Con!rst.Update
+'					F.ODBC.Con!rst.Close
+'					F.ODBC.Connection!Con.Close
+'				F.Intrinsic.Control.EndIf
+'			F.Intrinsic.Control.EndIf
+'			
+'		F.Intrinsic.Control.Case("VIEW COMMENTS")
+'			F.ODBC.Connection!Con.OpenCompanyConnection
+'			F.Intrinsic.String.Build("Select Rec_No, Order_No, Record_No, Comment From GCG_4826_Comments Where Order_No = '{0}' and Record_No = '{1}' Order By Rec_No",V.DataTable.SOWIPTOFG(V.Global.iIndex).Order_No!FieldValTrim,V.DataTable.SOWIPTOFG(V.Global.iIndex).Record_No!FieldValTrim,V.Local.sSql)
+'			
+'			F.Data.DataTable.DeleteRow("ViewComments")
+'			
+'			F.Data.DataTable.AcceptChanges("ViewComments")
+'			
+'			F.Data.DataTable.CreateFromSQL("ViewCommentsTemp","con",V.Local.sSql,True)
+'			F.Data.DataTable.Merge("ViewCommentsTemp","ViewComments",False,4)
+'			
+'			F.Data.DataTable.Close("ViewCommentsTemp")
+'			
+'			Gui.Form_Comments.GsGridControlEditComments.Visible(False)
+'			Gui.Form_Comments.GsGridControlViewComments.Visible(True)
+'			
+'			V.Global.sGridComments.Set("View")
+'			
+'			Gui.Form_Comments..Caption("View Comments")
+'			Gui.Form_Comments.cmdCommentSave.Visible(False)
+'			Gui.Form_Comments.GsGridControlEditComments.Anchor(5)
+'			Gui.Form_Comments.GsGridControlViewComments.Anchor(5)
+'			Gui.Form_Comments.cmdCommentSave.Anchor(4)
+'			Gui.Form_Comments..Size(12810,6255)
+'			
+'			Gui.Form_Comments.GsGridControlEditComments.Anchor(15)
+'			Gui.Form_Comments.GsGridControlViewComments.Anchor(15)
+'			Gui.Form_Comments.cmdCommentSave.Anchor(6)
+'			
+'			F.ODBC.Connection!Con.Close
+'			
+'			Gui.Form_Comments..Show
+'			
+'		F.Intrinsic.Control.Case("DELETE/EDIT COMMENTS")
+'			F.ODBC.Connection!Con.OpenCompanyConnection
+'			F.Intrinsic.String.Build("Select Rec_No, Order_No, Record_No, Comment From GCG_4826_Comments Where Order_No = '{0}' and Record_No = '{1}' Order By Rec_No",V.DataTable.SOWIPTOFG(V.Global.iIndex).Order_No!FieldValTrim,V.DataTable.SOWIPTOFG(V.Global.iIndex).Record_No!FieldValTrim,V.Local.sSql)
+'			
+'			F.Data.DataTable.DeleteRow("EditComments")
+'			
+'			F.Data.DataTable.AcceptChanges("EditComments")
+'			
+'			F.Data.DataTable.CreateFromSQL("EditCommentsTemp","con",V.Local.sSql,True)
+'			F.Data.DataTable.Merge("EditCommentsTemp","EditComments",False,4)
+'			
+'			F.Data.DataTable.Close("EditCommentsTemp")
+'	
+'			Gui.Form_Comments.GsGridControlEditComments.Visible(True)
+'			Gui.Form_Comments.GsGridControlViewComments.Visible(False)
+'			
+'			V.Global.sGridComments.Set("Edit")
+'			
+'			Gui.Form_Comments..Caption("Edit/Delete Comments")
+'			Gui.Form_Comments.cmdCommentSave.Visible(True)
+'			Gui.Form_Comments.GsGridControlEditComments.Anchor(5)
+'			Gui.Form_Comments.GsGridControlViewComments.Anchor(5)
+'			Gui.Form_Comments.cmdCommentSave.Anchor(4)
+'			Gui.Form_Comments..Size(12810,7035)
+'			Gui.Form_Comments.GsGridControlEditComments.Anchor(15)
+'			Gui.Form_Comments.GsGridControlViewComments.Anchor(15)
+'			Gui.Form_Comments.cmdCommentSave.Anchor(6)
+'	
+'			F.ODBC.Connection!Con.Close
+'			
+'			Gui.Form_Comments..Show
+		
+		F.Intrinsic.Control.Case("LABEL OVERRIDE")
+			Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.GetCellValueByColumnName("SOGRID","Qty_Ordered",V.Global.iIndex,V.Local.sRet)
+			
+			Gui.Form_LabelOverride.txtNumberOfLabels.Text(V.Local.sRet.Long)
+			Gui.Form_LabelOverride.txtQtyPer.Text("1")
+			
+			Gui.FormSOWIPFG..Enabled(False)
+			Gui.Form_LabelOverride..Visible(True)
+
+			Gui.Form_LabelOverride..WaitForDismiss
+		
+		F.Intrinsic.Control.Case("INVENTORY LABEL")
+		
+	F.Intrinsic.Control.EndSelect
+	
+	F.ODBC.Connection!Con.OpenCompanyConnection
+	
+	F.Intrinsic.Debug.SetLA("Saving to DB")
+	F.Data.DataTable.SaveToDB("SOWIPTOFG","con","GCG_4826_SO_WIPTOFG","ORDER_NO*!*RECORD_NO",7,"ORDER_NO@!@ORDER_NO*!*RECORD_NO@!@RECORD_NO*!*PART@!@PART*!*PRODUCT_LINE@!@PRODUCT_LINE*!*DESCRIPTION@!@DESCRIPTION*!*JOB@!@JOB*!*SUFFIX@!@SUFFIX*!*QTY_ORDERED@!@QTY_ORDERED*!*QTY_SCANNED@!@QTY_SCANNED*!*TO_BIN@!@TO_BIN*!*WIPTOFG@!@WIPTOFG*!*WIP_QTY@!@WIP_QTY*!*DEFAULT_BIN@!@DEFAULT_BIN*!*INV_QTY@!@INV_QTY*!*COMMENT@!@COMMENT")
+	
+	F.Data.DataTable.AcceptChanges("SOWIPTOFG")
+	
+	F.ODBC.Connection!Con.Close
+	
+	V.Global.iIndex.Set(-1)
+	
+	F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}Last Action: {5}","GCG_4826_SO_WIPTOFG.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.LastAction,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub(FormSOWIPFG_UnLoad)
+	F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+Program.Sub.MenuClick.End
+
+Program.Sub.GsGridControlSOWIPTOFG_RowCellClick.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare(String,"")
+	V.Local.iX.Declare(Long,0)
+	V.Local.iY.Declare(Long,0)
+	V.Local.sParams.Declare(String,"")
+	V.Local.sPart.Declare(String,"")
+	V.Local.sBin.Declare(String,"")
+	V.Local.sOrderNo.Declare(String,"")
+	V.Local.sJob.Declare(String,"")
+	V.Local.sSuf.Declare(String,"")
+	
+	F.Intrinsic.Debug.SetLA("Showing Context Menu")
+	F.Intrinsic.Control.If(V.Args.Button.UCase,=,"RIGHT")
+		F.Intrinsic.Control.If(V.Args.Column.UCase,<>,"TO_BIN","AND",V.Args.Column.UCase,<>,"SELECTED")	
+			'getting mouse position
+			F.Intrinsic.API.GetMousePosition(V.Local.iX,V.Local.iY)
+		
+			'showing context menu
+			Gui.FormSOWIPFG..ContextMenuShow("QtyOverride",V.Local.iX,V.Local.iY)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Else
+		F.Intrinsic.Control.SelectCase(V.Args.Column.UCase)
+			F.Intrinsic.Control.CaseAny("ORDER_NO","RECORD_NO")
+				Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.GetCellValueByColumnName("SOGRID","ORDER_NO",V.Args.RowIndex,V.Local.sOrderNo)
+				F.Intrinsic.String.ConcatCallWrapperArgs(V.Local.sOrderNo,"V","*!*ZDR*!*",V.Local.sParams)
+				F.Global.General.CallWrapperASync(200000,V.Local.sParams)
+					
+			F.Intrinsic.Control.Case("PART")
+				Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.GetCellValueByColumnName("SOGRID","PART",V.Args.RowIndex,V.Local.sPart)
+				F.Intrinsic.String.Build("{0}!*!!*!O",V.Local.sPart,V.Local.sParams)
+				F.Global.General.CallWrapperASync(300011,V.Local.sParams)
+				
+			F.Intrinsic.Control.Case("DESCRIPTION")
+				Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.GetCellValueByColumnName("SOGRID","PART",V.Args.RowIndex,V.Local.sPart)
+				F.Intrinsic.String.Build("{0}!*!!*!MR",V.Local.sPart,V.Local.sParams)
+				F.Global.General.CallWrapperASync(7200,V.Local.sParams)
+				
+			F.Intrinsic.Control.CaseAny("JOB","SUFFIX")
+				Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.GetCellValueByColumnName("SOGRID","JOB",V.Args.RowIndex,V.Local.sJob)
+				Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.GetCellValueByColumnName("SOGRID","SUFFIX",V.Args.RowIndex,V.Local.sSuf)
+				F.Intrinsic.Control.If(V.Local.sJob,<>,"")
+					F.Intrinsic.String.Build("7!*!{0}!*!{1}!*!A",V.Local.sJob,V.Local.sSuf,V.Local.sParams)
+					F.Global.General.CallWrapperSync(450000,V.Local.sParams)
+				F.Intrinsic.Control.EndIf
+				
+			F.Intrinsic.Control.Case("TO_BIN")
+				Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.GetCellValueByColumnName("SOGRID","PART",V.Args.RowIndex,V.Local.sPart)
+				Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.GetCellValueByColumnName("SOGRID","TO_BIN",V.Args.RowIndex,V.Local.sBin)
+				
+		F.Intrinsic.Control.EndSelect
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}Last Action: {5}","GCG_4826_SO_WIPTOFG.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.LastAction,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub(FormSOWIPFG_UnLoad)
+	F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+Program.Sub.GsGridControlSOWIPTOFG_RowCellClick.End
+
+Program.Sub.GsGridControlSOWIPTOFG_MouseCellEnter.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare(String,"")
+	V.Local.iMenu.Declare(Long,0)
+	V.Local.iRowClick.Declare(Long,0)
+	V.Local.sTemp.Declare(String,"")
+
+	F.Intrinsic.Control.BlockEvents
+	F.Intrinsic.Debug.SetLA("Checking if MenuClick or rowcellclick subs are in the call stack")
+	F.Intrinsic.Control.IsInCallstack(MenuClick,V.Local.iMenu)
+	F.Intrinsic.Control.IsInCallstack(GsGridControlSOWIPTOFG_RowCellClick,V.Local.iRowClick)
+	
+	F.Intrinsic.Control.If(V.Local.iMenu,=,0,"AND",V.Local.iRowClick,=,0)	
+		F.Intrinsic.Debug.SetLA("Getting RowIndex for current cell")
+'		Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.GetSelectedRowsInFocus(V.Local.sTemp)
+		Gui.FormSOWIPFG.GsGridControlSOWIPTOFG.GetCellValueByColumnName("SOGRID","Record_No",V.Args.SourceRowIndex,V.Local.sTemp)
+		F.Intrinsic.String.Build("Record_No = '{0}'",V.Local.sTemp,V.Local.sTemp)
+		F.Data.DataTable.Select("SOWIPTOFG",V.Local.sTemp,V.Local.sTemp.Long)
+		V.Global.iIndex.Set(V.Local.sTemp.Long)
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.UnBlockEvents
+	
+	F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}Last Action: {5}","GCG_4826_SO_WIPTOFG.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.LastAction,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub(FormSOWIPFG_UnLoad)
+	F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+Program.Sub.GsGridControlSOWIPTOFG_MouseCellEnter.End
+
+Program.Sub.Part_Scan_Process.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare(String,"")
+	V.Local.sFilter.Declare(String,"")
+	V.Local.iScanned.Declare(Long,0)
+	V.Local.sPart.Declare(String,"")
+	V.Local.sMsg.Declare(String,"")
+	
+	V.Local.sPart.Set(V.Screen.FormSOWIPFG!txtPart/WO.Text)
+	F.Intrinsic.Debug.SetLA("Updating SO Line Qty Part Scan")
+	F.Intrinsic.String.Build("Part = '{0}' and Qty_Scanned < Qty_Ordered",V.Local.sPart.Trim,V.Local.sFilter)
+	
+	F.Data.DataView.Create("SOWIPTOFG","Temp",22,V.Local.sFilter,"Record_No")
+		
+	F.Intrinsic.Control.If(V.DataView.SOWIPTOFG!Temp.RowCount--,<>,-1)
+		F.Intrinsic.Math.Add(V.DataView.SOWIPTOFG!Temp(0).Qty_Scanned!FieldVal,1,V.Local.iScanned)
+		F.Data.DataView.SetValue("SOWIPTOFG","Temp",0,"Qty_Scanned",V.Local.iScanned)
+	F.Intrinsic.Control.Else
+		F.Intrinsic.String.Build("Part = '{0}'",V.Local.sPart.Trim,V.Local.sFilter)
+		F.Data.DataView.SetFilter("SOWIPTOFG","Temp",V.Local.sFilter)
+		F.Intrinsic.Control.If(V.DataView.SOWIPTOFG!Temp.RowCount--,<>,-1)
+			F.Intrinsic.String.Build("Scanned Part: {0} is not on the Sales Order.....",V.Local.sPart.Trim,V.Local.sMsg)
+			F.Intrinsic.UI.Msgbox(V.Local.sMsg,"Attention")
+		F.Intrinsic.Control.Else
+			F.Intrinsic.String.Build("Qty has been met for Part: {0}.....",V.Local.sPart.Trim,V.Local.sMsg)
+			F.Intrinsic.UI.Msgbox(V.Local.sMsg,"Attention")
+		F.Intrinsic.Control.EndIf
+		F.Data.DataView.Close("SOWIPTOFG","Temp")
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+	
+	F.ODBC.Connection!Con.OpenCompanyConnection
+	
+	F.Intrinsic.Debug.SetLA("Save to DB")
+	F.Data.DataTable.SaveToDB("SOWIPTOFG","con","GCG_4826_SO_WIPTOFG","ORDER_NO*!*RECORD_NO",7,"ORDER_NO@!@ORDER_NO*!*RECORD_NO@!@RECORD_NO*!*PART@!@PART*!*PRODUCT_LINE@!@PRODUCT_LINE*!*DESCRIPTION@!@DESCRIPTION*!*JOB@!@JOB*!*SUFFIX@!@SUFFIX*!*QTY_ORDERED@!@QTY_ORDERED*!*QTY_SCANNED@!@QTY_SCANNED*!*TO_BIN@!@TO_BIN*!*WIPTOFG@!@WIPTOFG*!*WIP_QTY@!@WIP_QTY*!*DEFAULT_BIN@!@DEFAULT_BIN*!*INV_QTY@!@INV_QTY*!*COMMENT@!@COMMENT")
+	
+	F.Data.DataTable.AcceptChanges("SOWIPTOFG")
+	
+	F.ODBC.Connection!Con.Close
+	
+	F.Data.DataView.Close("SOWIPTOFG","Temp")
+	
+	F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}Last Action: {5}","GCG_4826_SO_WIPTOFG.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.LastAction,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub(FormSOWIPFG_UnLoad)
+	F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+Program.Sub.Part_Scan_Process.End
+
+Program.Sub.JobSuffix_Scan_Process.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare(String,"")
+	V.Local.sFilter.Declare(String,"")
+	V.Local.iScanned.Declare(Long,0)
+	V.Local.sJob.Declare(String,"")
+	V.Local.sSuffix.Declare(String,"")
+	V.Local.sMsg.Declare(String,"")
+	
+	F.Intrinsic.Debug.SetLA("Updating Qty for SO line for Job Suffix scan")
+	V.Local.sJob.Set(V.Screen.FormSOWIPFG!txtPart/WO.Text)
+	F.Intrinsic.Control.If(V.Local.sJob.Length,>=,9)
+		F.Intrinsic.String.Mid(V.Screen.FormSOWIPFG!txtPart/WO.Text,7,3,V.Local.sSuffix)
+	F.Intrinsic.Control.Else
+		V.Local.sSuffix.Set("")
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.String.Left(V.Screen.FormSOWIPFG!txtPart/WO.Text,6,V.Local.sJob)
+	
+	F.Intrinsic.String.Build("Job = '{0}' and Suffix = '{1}' and Qty_Scanned < Qty_Ordered",V.Local.sJob,V.Local.sSuffix,V.Local.sFilter)
+	
+	F.Data.DataView.Create("SOWIPTOFG","Temp",22,V.Local.sFilter,"Record_No")
+		
+	F.Intrinsic.Control.If(V.DataView.SOWIPTOFG!Temp.RowCount--,<>,-1)
+		F.Intrinsic.Math.Add(V.DataView.SOWIPTOFG!Temp(V.DataView.SOWIPTOFG!Temp.RowCount--).Qty_Scanned!FieldVal,1,V.Local.iScanned)
+		F.Data.DataView.SetValue("SOWIPTOFG","Temp",V.DataView.SOWIPTOFG!Temp.RowCount--,"Qty_Scanned",V.Local.iScanned)
+	F.Intrinsic.Control.Else
+		F.Intrinsic.String.Build("Job = '{0}' and Suffix = '{1}'",V.Local.sJob,V.Local.sSuffix,V.Local.sFilter)
+		F.Data.DataView.SetFilter("SOWIPTOFG","Temp",V.Local.sFilter)
+		F.Intrinsic.Control.If(V.DataView.SOWIPTOFG!Temp.RowCount--,<>,-1)
+			F.Intrinsic.String.Build("Scanned Job: {0} Suffix: {1} is not on the Sales Order.....",V.Local.sJob,V.Local.sSuffix,V.Local.sMsg)
+			F.Intrinsic.UI.Msgbox(V.Local.sMsg,"Attention")
+		F.Intrinsic.Control.Else
+			F.Intrinsic.String.Build("Qty has been met for Job: {0} Suffix: {1}.....",V.Local.sJob,V.Local.sSuffix,V.Local.sMsg)
+			F.Intrinsic.UI.Msgbox(V.Local.sMsg,"Attention")
+		F.Intrinsic.Control.EndIf
+		F.Data.DataView.Close("SOWIPTOFG","Temp")
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+	
+	F.ODBC.Connection!Con.OpenCompanyConnection
+	
+	F.Intrinsic.Debug.SetLA("Save to DB")
+	F.Data.DataTable.SaveToDB("SOWIPTOFG","con","GCG_4826_SO_WIPTOFG","ORDER_NO*!*RECORD_NO",7,"ORDER_NO@!@ORDER_NO*!*RECORD_NO@!@RECORD_NO*!*PART@!@PART*!*PRODUCT_LINE@!@PRODUCT_LINE*!*DESCRIPTION@!@DESCRIPTION*!*JOB@!@JOB*!*SUFFIX@!@SUFFIX*!*QTY_ORDERED@!@QTY_ORDERED*!*QTY_SCANNED@!@QTY_SCANNED*!*TO_BIN@!@TO_BIN*!*WIPTOFG@!@WIPTOFG*!*WIP_QTY@!@WIP_QTY*!*DEFAULT_BIN@!@DEFAULT_BIN*!*INV_QTY@!@INV_QTY*!*COMMENT@!@COMMENT")
+	
+	F.Data.DataTable.AcceptChanges("SOWIPTOFG")
+	
+	F.ODBC.Connection!Con.Close
+	
+	F.Data.DataView.Close("SOWIPTOFG","Temp")
+	
+	F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}Last Action: {5}","GCG_4826_SO_WIPTOFG.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.LastAction,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub(FormSOWIPFG_UnLoad)
+	F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+Program.Sub.JobSuffix_Scan_Process.End
+
+Program.Sub.cmdExportToExcel_Click.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare(String,"")
+	V.Local.sData.Declare(String,"")
+	V.Local.sColumns.Declare(String,"")
+	V.Local.sTemplateFile.Declare(String,"")
+	V.Local.sFile.Declare(String,"")
+	V.Local.bRet.Declare(Boolean,False)
+	V.Local.sFileName.Declare(String,"")
+	
+	F.Intrinsic.UI.InvokeWaitDialog("Exporting to Excel")
+	Gui.FormSOWIPFG.cmdExportToExcel.Enabled(False)
+	F.Intrinsic.Debug.SetLA("Exporting to Excel")
+	F.Intrinsic.String.Build("{0}\Custom\4826\GCG_4826_Template.xlsx",V.Caller.GlobalDir,V.Local.sTemplateFile)
+	
+	V.Local.sFileName.Set(V.Ambient.Now)
+	f.Intrinsic.String.StripCharacters(v.Ambient.Now,V.Local.sFileName)
+	
+	F.Intrinsic.String.Build("{0}GCG_4826_SOWIPFG{1}.xlsx",V.Caller.LocalGssTempDir,V.Local.sFileName,v.Local.sFile)
+	
+	F.Intrinsic.File.Exists(V.Local.sTemplateFile,V.Local.bRet)
+	
+	F.Intrinsic.Control.If(V.Local.bRet,=,False)
+		V.Local.sTemplateFile.Set("")
+	F.Intrinsic.Control.EndIf
+	
+	V.Local.sColumns.Set("Order_No*!*Record_No*!*Product_Line*!*Part*!*Description*!*Code_Sort*!*Source*!*Job*!*Suffix*!*Qty_Ordered*!*Qty_Scanned*!*To_Bin*!*WIPToFG*!*WIP_Qty*!*Default_Bin*!*Inv_Qty*!*Comment*!*Flag_Bom")
+	
+	F.Data.DataView.Create("SOWIPTOFG","ExportTemp")
+	
+	F.Data.DataView.ToString("SOWIPTOFG","ExportTemp",V.Local.sColumns,"*!*","$!$",V.Local.sData)
+	
+	F.Intrinsic.String.Build("SO*!*SO Line*!*PL*!*Part*!*Description*!*Sort Code*!*SC*!*Job*!*Suffix*!*Qty Ord*!*Qty Scan*!*To Bin*!*WTFG*!*WIP Qty*!*Default Bin*!*Inv Qty*!*Comment*!*Flag Bom$!${0}",V.Local.sData,V.Local.sData)
+	
+	F.Automation.MSExcel.WriteSpreadsheet(V.Local.sFile,V.Local.sTemplateFile,V.Local.sData)
+	
+	Gui.FormSOWIPFG.cmdExportToExcel.Enabled(True)
+	F.Intrinsic.UI.CloseWaitDialog
+	
+	F.Intrinsic.Task.ShellExec(0,"",V.Local.sFile,"","",1)
+	
+	F.Data.DataView.Close("SOWIPTOFG","ExportTemp")
+	
+	F.Intrinsic.Control.ExitSub
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}Last Action: {5}","GCG_4826_SO_WIPTOFG.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.LastAction,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub(FormSOWIPFG_UnLoad)
+	F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+Program.Sub.cmdExportToExcel_Click.End
+
+Program.Sub.Check_For_Excel.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare(String,"")
+	V.Local.bRet.Declare(Boolean,False)
+	
+	F.Intrinsic.Debug.SetLA("Checking if Excel is Present on the Machine")
+	'checking if excel is present 
+	F.Automation.MSExcel.CheckPresence(V.Local.bRet)
+	
+	F.Intrinsic.Control.If(V.Local.bRet)	
+		Gui.FormSOWIPFG.cmdExportToExcel.Enabled(True)
+		Gui.FormSOWIPFG.lblExcelnotpresent.Visible(False)
+	F.Intrinsic.Control.Else
+		Gui.FormSOWIPFG.cmdExportToExcel.Enabled(False)
+		Gui.FormSOWIPFG.lblExcelnotpresent.Visible(True)
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.ExitSub
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}Last Action: {5}","GCG_4826_SO_WIPTOFG.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.LastAction,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub(FormSOWIPFG_UnLoad)
+	F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+Program.Sub.Check_For_Excel.End
+
+Program.Sub.Form_QtyOverride_UnLoad.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare(String,"")
+	
+	F.Intrinsic.Debug.SetLA("Hiding Qty Override Screen")
+	Gui.Form_QtyOverride..Visible(False)
+	
+	F.Intrinsic.Control.ExitSub
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}Last Action: {5}","GCG_4826_SO_WIPTOFG.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.LastAction,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub(FormSOWIPFG_UnLoad)
+	F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+Program.Sub.Form_QtyOverride_UnLoad.End
+
+Program.Sub.txtQtyAdd/Remove_Change.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare(String,"")
+	
+	F.Intrinsic.Debug.SetLA("Checking if Qty Entered to Remove is not greater than the qty that can be removed for selected SO line")
+	F.Intrinsic.Control.If(V.Screen.Form_QtyOverride!txtQtyOrdered/Scanned.Text,<,V.Screen.Form_QtyOverride!txtQtyAdd/Remove.Text)
+		Gui.Form_QtyOverride.txtQtyAdd/Remove.Text(V.Screen.Form_QtyOverride!txtQtyOrdered/Scanned.Text)
+		Gui.Form_QtyOverride.cmdSubmit.Enabled(True)
+	F.Intrinsic.Control.Else
+		F.Intrinsic.Control.If(V.Screen.Form_QtyOverride!txtQtyAdd/Remove.Text,=,0)
+			Gui.Form_QtyOverride.cmdSubmit.Enabled(False)
+		F.Intrinsic.Control.Else
+			Gui.Form_QtyOverride.cmdSubmit.Enabled(True)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.ExitSub
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}Last Action: {5}","GCG_4826_SO_WIPTOFG.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.LastAction,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub(FormSOWIPFG_UnLoad)
+	F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+Program.Sub.txtQtyAdd/Remove_Change.End
+
+Program.Sub.txtQtyAdd/Remove_GotFocus.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare(String,"")
+	
+	F.Intrinsic.Debug.SetLA("Selecting All Text in Qty Add Text Box")
+	Gui.Form_QtyOverride.txtQtyAdd/Remove.SelectAll
+	
+	F.Intrinsic.Control.ExitSub
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}Last Action: {5}","GCG_4826_SO_WIPTOFG.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.LastAction,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub(FormSOWIPFG_UnLoad)
+	F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+Program.Sub.txtQtyAdd/Remove_GotFocus.End
+
+Program.Sub.cmdSubmit_Click.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare(String,"")
+	V.Local.iQty.Declare(Long,0)
+	V.Local.bRet.Declare(Boolean,False)
+
+	F.Intrinsic.Debug.SetLA("Checking to make sure the Qty to Add is not greater than the Qty that can be added")
+	F.Intrinsic.String.IsInString(V.Screen.Form_QtyOverride!lblQtyRemain/Scanned.Caption,"Remaining",True,V.Local.bRet)
+	
+	F.Intrinsic.Control.If(V.Local.bRet)
+		F.Intrinsic.Math.Add(V.DataTable.SOWIPTOFG(V.Global.iIndex).Qty_Scanned!FieldVal,V.Screen.Form_QtyOverride!txtQtyAdd/Remove.Text,V.Local.iQty)
+		F.Data.DataTable.SetValue("SOWIPTOFG",V.Global.iIndex,"Qty_Scanned",V.Local.iQty)
+	F.Intrinsic.Control.Else
+		F.Intrinsic.Math.Sub(V.DataTable.SOWIPTOFG(V.Global.iIndex).Qty_Scanned!FieldVal,V.Screen.Form_QtyOverride!txtQtyAdd/Remove.Text,V.Local.iQty)
+		F.Data.DataTable.SetValue("SOWIPTOFG",V.Global.iIndex,"Qty_Scanned",V.Local.iQty)
+	F.Intrinsic.Control.EndIf
+	
+	
+	F.Intrinsic.Control.CallSub(Form_QtyOverride_UnLoad)
+	
+	F.Intrinsic.Control.ExitSub
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}Last Action: {5}","GCG_4826_SO_WIPTOFG.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.LastAction,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub(FormSOWIPFG_UnLoad)
+	F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+Program.Sub.cmdSubmit_Click.End
+
+Program.Sub.WIPtoWIP.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare(String,"")
+	V.Local.sSql.Declare(String,"")
+	V.Local.iWipQty.Declare(Long,0)
+	V.Local.i.Declare(Long,0)
+	V.Local.sClose.Declare(String,"")
+	V.Local.sFile.Declare(String,"")
+	V.Local.sData.Declare(String,"")
+	V.Local.iQtyRemain.Declare(Long,0)
+	V.Local.sFileName.Declare(String,"")
+	V.Local.sStatus.Declare(String,"")
+	V.Local.bWIPTOFG.Declare(Boolean,True)
+	V.Local.sUser.Declare(String,"")
+	V.Local.sErrorFile.Declare(String,"")
+	V.Local.bRet.Declare(Boolean,False)
+	V.Local.sMsg.Declare(String,"")
+	V.Local.bWIPToWip.Declare(Boolean,True)
+	
+	F.Intrinsic.Control.If(V.DataView.SOWIPTOFG!WIP(V.Args.DVIndex).Job!FieldValTrim,<>,"")
+		F.Intrinsic.Debug.SetLA("WIP to WIP process")
+		F.Intrinsic.Control.If(V.Args.DVIndex.Exists)
+			F.Intrinsic.Math.Sub(V.DataView.SOWIPTOFG!WIP(V.Args.DVIndex).Qty_Scanned!FieldVal,V.DataView.SOWIPTOFG!WIP(V.Args.DVIndex).WIP_Qty!FieldVal,V.Local.iQtyRemain)
+			
+			F.Intrinsic.Control.If(V.DataView.SOWIPTOFG!WIP(V.Args.DVIndex).Qty_Scanned!FieldValLong,=,V.DataView.SOWIPTOFG!WIP(V.Args.DVIndex).Qty_Ordered!FieldValLong)
+				V.Local.sClose.Set("Y")
+				V.Local.bWIPTOFG.Set(True)
+			F.Intrinsic.Control.Else
+				V.Local.sClose.Set("N")
+				V.Local.bWIPTOFG.Set(True)
+			F.Intrinsic.Control.EndIf
+			
+			F.Intrinsic.Control.If(V.Local.iQtyRemain,>,0)
+				'checking of job has children wo's 
+				F.Intrinsic.String.Build("Select Job, Suffix, Qty_Order, Qty_Order - Qty_Completed as Qty_Remaining From V_Job_Header Where Parent_WO = '{0}' and Parent_Suffix_Parent = '{1}'",V.DataView.SOWIPTOFG!WIP(V.Args.DVIndex).Job!FieldValTrim,V.DataView.SOWIPTOFG!WIP(V.Args.DVIndex).Suffix!FieldValTrim,V.Local.sSql)
+				
+				F.ODBC.Connection!Con.OpenCompanyConnection
+				
+				F.Data.DataTable.CreateFromSQL("ChildrenJobs","con",V.Local.sSql,True)
+				
+				'check if any children exists
+				F.Intrinsic.Control.If(V.DataTable.ChildrenJobs.RowCount--,<>,-1)
+					F.Intrinsic.Control.For(V.Local.i,0,V.DataTable.ChildrenJobs.RowCount--,1)
+						F.Intrinsic.Control.If(V.Caller.User.Length,>,7)
+							F.Intrinsic.String.Left(V.Caller.User,7,V.Local.sUser)
+						F.Intrinsic.Control.Else
+							V.Local.sUser.Set(V.Caller.User)
+						F.Intrinsic.Control.EndIf
+						
+						F.Intrinsic.String.Build("{0}\{1}WIPToWIP.txt",V.Caller.FilesDir,V.Local.sUser,V.Local.sFile)
+						F.Intrinsic.String.Build("{0}WIPToWIP",V.Local.sUser,V.Local.sFileName)
+						
+						F.Intrinsic.Control.If(V.Local.sClose,=,"Y")
+							V.Local.iWipQty.Set(V.DataTable.ChildrenJobs(V.Local.i).Qty_Remaining!FieldValLong)
+						F.Intrinsic.Control.Else
+							F.Intrinsic.Math.Div(V.DataTable.ChildrenJobs(V.Local.i).Qty_Order!FieldVal,V.DataView.SOWIPTOFG!WIP(V.Args.DVIndex).Qty_Ordered!FieldVal,V.Local.iWipQty)
+							F.Intrinsic.Math.Mult(V.Local.iQtyRemain,V.Local.iWipQty,V.Local.iWipQty)
+						F.Intrinsic.Control.EndIf
+						
+						F.Intrinsic.Control.If(V.Local.iWipQty,>,0)
+							'Work Order, From Work Order Suffix, To Work Order, To Work Order Suffix, To Work Order Sequence, Transfer Date (optional), Closed Flag, Quantity, Cost (if closing it is not needed), Price (optional)
+							F.Intrinsic.String.Build("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9}",V.DataTable.ChildrenJobs(V.Local.i).Job!FieldValTrim,V.DataTable.ChildrenJobs(V.Local.i).Suffix!FieldValTrim,V.DataView.SOWIPTOFG!WIP(V.Args.DVIndex).Job!FieldValTrim,V.DataView.SOWIPTOFG!WIP(V.Args.DVIndex).Suffix!FieldValTrim,"995000","",V.Local.sClose,V.Local.iWipQty,"","",V.Local.sData)
+							
+							F.Intrinsic.File.String2File(V.Local.sFile,V.Local.sData)
+							
+							F.Global.Callwrapper.New("WIPTOWIP","Manufacturing.WipToWipTransfer")
+							F.Global.Callwrapper.SetProperty("WIPTOWIP","FileName",V.Local.sFileName)
+							F.Global.Callwrapper.Run("WIPTOWIP")
+							F.Global.Callwrapper.GetProperty("WIPTOWIP","Status",V.Local.sStatus)
+							
+							F.Intrinsic.Control.SelectCase(V.Local.sStatus.UCase)
+								F.Intrinsic.Control.Case("FAIL")
+									V.Local.bWIPToWip.Set(False)
+									V.Local.bWIPTOFG.Set(False)
+									'read file to get error
+									F.Intrinsic.Control.If(V.Caller.FilesDir.Right1,=,"\")
+										V.Local.sErrorFile.Set(V.Caller.FilesDir)
+									F.Intrinsic.Control.Else
+										F.Intrinsic.String.Build("{0}\",V.Caller.FilesDir,V.Local.sErrorFile)
+									F.Intrinsic.Control.EndIf
+									F.Intrinsic.String.Build("{0}{1}JB0066LOG.TXT",V.Local.sErrorFile,V.Caller.CompanyCode,V.Local.sErrorFile)
+									F.Intrinsic.File.Exists(V.Local.sErrorFile,V.Local.bRet)
+									F.Intrinsic.Control.If(V.Local.bRet)
+										F.Intrinsic.File.File2String(V.Local.sErrorFile,V.Local.sMsg)
+										F.Intrinsic.String.Split(V.Local.sMsg,"*!*",V.Local.sMsg)
+										V.Local.sMsg.RedimPreserve(0,4)
+										F.Intrinsic.String.Build("From WO: {0} To WO: {1} Error msg: {2}",V.Local.sMsg(2),V.Local.sMsg(3),V.Local.sMsg(4).Trim,V.Local.sMsg)
+										F.Intrinsic.UI.Msgbox(V.Local.sMsg)
+										F.Intrinsic.File.DeleteFile(V.Local.sErrorFile)
+									F.Intrinsic.Control.Else
+										F.Intrinsic.String.Build("Error File Not Found.  Job: {0} Suffix: {1} will need to be WIP from GSS. Go to Menu Item SF > Transactions > Transfer WIP to WIP",V.DataTable.ChildrenJobs(V.Local.i).Job!FieldValTrim,V.DataTable.ChildrenJobs(V.Local.i).Suffix!FieldValTrim,V.Local.sMsg)
+										F.Intrinsic.UI.Msgbox(V.Local.sMsg)
+									F.Intrinsic.Control.EndIf
+									
+								F.Intrinsic.Control.Case("PARMERROR")
+									V.Local.bWIPToWip.Set(False)
+									V.Local.bWIPTOFG.Set(False)
+									'read file to get error
+									F.Intrinsic.Control.If(V.Caller.FilesDir.Right1,=,"\")
+										V.Local.sErrorFile.Set(V.Caller.FilesDir)
+									F.Intrinsic.Control.Else
+										F.Intrinsic.String.Build("{0}\",V.Caller.FilesDir,V.Local.sErrorFile)
+									F.Intrinsic.Control.EndIf
+									F.Intrinsic.String.Build("{0}{1}JB0066LOG.TXT",V.Local.sErrorFile,V.Caller.CompanyCode,V.Local.sErrorFile)
+									F.Intrinsic.File.Exists(V.Local.sErrorFile,V.Local.bRet)
+									F.Intrinsic.Control.If(V.Local.bRet)
+										F.Intrinsic.File.File2String(V.Local.sErrorFile,V.Local.sMsg)
+										F.Intrinsic.String.Split(V.Local.sMsg,"*!*",V.Local.sMsg)
+										V.Local.sMsg.RedimPreserve(0,4)
+										F.Intrinsic.String.Build("From WO: {0} To WO: {1} Error msg: {2}",V.Local.sMsg(2),V.Local.sMsg(3),V.Local.sMsg(4).Trim,V.Local.sMsg)
+										F.Intrinsic.UI.Msgbox(V.Local.sMsg)
+										F.Intrinsic.File.DeleteFile(V.Local.sErrorFile)
+									F.Intrinsic.Control.Else
+										F.Intrinsic.String.Build("Error File Not Found.  Job: {0} Suffix: {1} will need to be WIP from GSS. Go to Menu Item SF > Transactions > Transfer WIP to WIP",V.DataTable.ChildrenJobs(V.Local.i).Job!FieldValTrim,V.DataTable.ChildrenJobs(V.Local.i).Suffix!FieldValTrim,V.Local.sMsg)
+										F.Intrinsic.UI.Msgbox(V.Local.sMsg)
+									F.Intrinsic.Control.EndIf
+									
+								F.Intrinsic.Control.CaseElse
+									F.Intrinsic.Control.If(V.Caller.FilesDir.Right1,=,"\")
+										V.Local.sErrorFile.Set(V.Caller.FilesDir)
+									F.Intrinsic.Control.Else
+										F.Intrinsic.String.Build("{0}\",V.Caller.FilesDir,V.Local.sErrorFile)
+									F.Intrinsic.Control.EndIf
+									F.Intrinsic.String.Build("{0}JB0066LOG.TXT",V.Local.sErrorFile,V.Local.sErrorFile)
+									F.Intrinsic.File.Exists(V.Local.sErrorFile,V.Local.bRet)
+									F.Intrinsic.Control.If(V.Local.bRet)
+										F.Intrinsic.File.DeleteFile(V.Local.sErrorFile)
+									F.Intrinsic.Control.EndIf
+									
+							F.Intrinsic.Control.EndSelect
+						F.Intrinsic.Control.EndIf
+						
+					F.Intrinsic.Control.Next(V.Local.i)
+				F.Intrinsic.Control.EndIf
+		
+'				'setting qty_scanned to qty wip if all children are successful 
+'				F.Intrinsic.Control.If(V.Local.bWIPToWip)
+'					F.Data.DataTable.SetValue("SOWIPTOFG",V.DataView.SOWIPTOFG!WIP(V.Args.DVIndex).DataTableIndex,"WIP_QTY",V.DataView.SOWIPTOFG!WIP(V.Args.DVIndex).Qty_Scanned!FieldVal)
+'				F.Intrinsic.Control.EndIf
+				
+				F.Data.DataTable.SaveToDB("SOWIPTOFG","con","GCG_4826_SO_WIPTOFG","ORDER_NO*!*RECORD_NO",7,"ORDER_NO@!@ORDER_NO*!*RECORD_NO@!@RECORD_NO*!*PART@!@PART*!*PRODUCT_LINE@!@PRODUCT_LINE*!*DESCRIPTION@!@DESCRIPTION*!*JOB@!@JOB*!*SUFFIX@!@SUFFIX*!*QTY_ORDERED@!@QTY_ORDERED*!*QTY_SCANNED@!@QTY_SCANNED*!*TO_BIN@!@TO_BIN*!*WIPTOFG@!@WIPTOFG*!*WIP_QTY@!@WIP_QTY*!*DEFAULT_BIN@!@DEFAULT_BIN*!*INV_QTY@!@INV_QTY*!*COMMENT@!@COMMENT")
+	
+				F.Data.DataTable.AcceptChanges("SOWIPTOFG")
+	
+				F.Data.DataTable.Close("ChildrenJobs")
+		
+				F.ODBC.Connection!Con.Close
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Variable.AddRV("WIPTOFG",V.Local.bWIPTOFG)
+	
+	F.Intrinsic.Control.ExitSub
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}Last Action: {5}","GCG_4826_SO_WIPTOFG.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.LastAction,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub(FormSOWIPFG_UnLoad)
+	F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+Program.Sub.WIPtoWIP.End
+
+Program.Sub.WIPToFG.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare(String,"")
+	V.Local.sMethod.Declare(String,"")
+	V.Local.sClose.Declare(String,"")
+	V.Local.iYear.Declare(Long,0)
+	V.Local.iMonth.Declare(Long,0)
+	V.Local.iDay.Declare(Long,0)
+	V.Local.iQtyRemain.Declare(Long,0)
+	V.Local.sPart.Declare(String,"")
+	V.Local.sText.Declare(String,"")
+	V.Local.sFile.Declare(String,"")
+	V.Local.sFqn.Declare(String,"")
+	V.Local.sStop.Declare(String,"")
+	V.Local.iDTIndex.Declare(Long,0)
+	V.Local.iWipQty.Declare(Long,0)
+	V.Local.sPrinter.Declare(String,"")
+	V.Local.iBIRunId.Declare(Long,0)
+	V.Local.iRptID.Declare(Long,0)
+	V.Local.iLogID.Declare(Long,0)
+	V.Local.fLabel.Declare(Float,0)
+	V.Local.iQty.Declare(Long,1)
+	V.Local.i.Declare(Long,0)
+	V.Local.sMsg.Declare(String,"")
+	V.Local.sSql.Declare(String,"")
+	V.Local.sFields.Declare(String,"")
+	V.Local.sDataTypes.Declare(String,"")
+	V.Local.iID.Declare(Long,0)
+	V.Local.sTransID.Declare(String,"")
+	V.Local.sQty.Declare(String,"")
+	V.Local.iTempQty.Declare(Long,0)
+	
+	F.Intrinsic.Debug.SetLA("WIP to FG process")
+	'Set the Year, month, and day values for the transaction date
+	F.Intrinsic.Date.Year(V.Ambient.Date,V.Local.iYear)
+	F.Intrinsic.Date.Month(V.Ambient.Date,V.Local.iMonth)
+	F.Intrinsic.Date.Day(V.Ambient.Date,V.Local.iDay)
+	
+'	F.Intrinsic.Control.If(V.Caller.User.UCase,=,"SUPERVSR")
+'		Function.Intrinsic.Debug.InvokeDebugger
+'		Function.Intrinsic.Debug.Stop
+'	F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.If(V.Args.DVIndex.Exists)
+		F.Intrinsic.Math.Sub(V.DataView.SOWIPTOFG!WIP(V.Args.DVIndex).Qty_Scanned!FieldVal,V.DataView.SOWIPTOFG!WIP(V.Args.DVIndex).WIP_Qty!FieldVal,V.Local.iQtyRemain)
+		F.Intrinsic.Control.If(V.Local.iQtyRemain,>,V.Screen.FormSOWIPFG!txtPrintQtyOverride.Text)
+			V.Local.iQty.Set(V.Screen.FormSOWIPFG!txtPrintQtyOverride.Text)
+			F.Intrinsic.Math.Div(V.Local.iQtyRemain,V.Local.iQty,V.Local.fLabel)
+			F.Intrinsic.Control.If(V.Local.fLabel,>,V.Local.fLabel.Long)
+				F.Intrinsic.Math.Add(V.Local.fLabel.Long,1,V.Local.fLabel)
+			F.Intrinsic.Control.Else
+				V.Local.fLabel.Set(V.Local.fLabel.Long)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Else
+			V.Local.fLabel.Set(1)
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.If(V.DataView.SOWIPTOFG!WIP(V.Args.DVIndex).Qty_Scanned!FieldVal,=,V.DataView.SOWIPTOFG!WIP(V.Args.DVIndex).Qty_Ordered!FieldVal)
+			V.Local.sClose.Set("Y")
+			V.Local.sMethod.Set("R")
+		F.Intrinsic.Control.Else
+			V.Local.sClose.Set("N")
+			V.Local.sMethod.Set("E")
+		F.Intrinsic.Control.EndIf
+		
+		F.Intrinsic.Control.If(V.Local.iQtyRemain,>,0)
+			F.Intrinsic.Control.If(V.DataView.SOWIPTOFG!WIP(V.Args.DVIndex).Job!FieldValTrim,<>,"")
+				'WONum,WOSuffix,Lot,Bin,Heat,Serial,SpecificQuantity,ExpDate,WarrantyMonths,UserField1,UserField2,UserField3,UserField4,UserField5,UserField6,UserField7,UserField8UserField9
+				F.Data.DataTable.AddRow("2003","Mode","NS","WONum",V.DataView.SOWIPTOFG!WIP(V.Args.DVIndex).Job!FieldValTrim,"WOSuffix",V.DataView.SOWIPTOFG!WIP(V.Args.DVIndex).Suffix!FieldValTrim,"XferYear",V.Local.iYear,"XferMonth",V.Local.iMonth,"XferDay",V.Local.iDay,"CloseWO",V.Local.sClose,"Quantity",V.Local.iQtyRemain,"CostMethod",V.Local.sMethod,"UpdateInv","Y","PrintLabels","N")
+				F.Data.DataTable.AddRow("2003File","WONum",V.DataView.SOWIPTOFG!WIP(V.Args.DVIndex).Job!FieldValTrim,"WOSuffix",V.DataView.SOWIPTOFG!WIP(V.Args.DVIndex).Suffix!FieldValTrim,"Lot","","Bin",V.DataView.SOWIPTOFG!WIP(V.Args.DVIndex).To_Bin!FieldValTrim,"SpecificQuantity",V.Local.iQtyRemain)
+				F.Intrinsic.Control.CallSub(2003Sync)
+				F.Data.DataTable.AcceptChanges("2003")
+				
+				V.Local.iDTIndex.Set(V.DataView.SOWIPTOFG!WIP(V.Args.DVIndex).DataTableIndex)
+				V.Local.iWipQty.Set(V.DataView.SOWIPTOFG!WIP(V.Args.DVIndex).Qty_Scanned!FieldVallong)
+				F.Data.DataTable.SetValue("SOWIPTOFG",V.Local.iDTIndex,"WIP_Qty",V.Local.iWipQty,"WIPTOFG",V.Local.sClose)
+			F.Intrinsic.Control.Else
+				F.Intrinsic.UI.ChangeWaitStatus("Bin To Bin Transfer................")
+				F.Intrinsic.Debug.SetLA("Bin To Bin Transfer")
+				'if not a make to job line doing a bin to bin from defualt bin to To_Bin
+				F.Intrinsic.String.RPad(V.DataView.SOWIPTOFG!WIP(V.Args.DVIndex).Part!FieldValTrim," ",20,V.Local.sPart)
+				F.Intrinsic.String.Build("Select Part From V_Item_Master Where Part = '{0}' and Quantity >= {1} and Bin = '{2}' and Heat = '' and Serial_Number = '' and Lot = ''",V.Local.sPart,V.Local.iQtyRemain,V.DataView.SOWIPTOFG!WIP(V.Args.DVIndex).Default_Bin!FieldValTrim,V.Local.sSql)
+				F.ODBC.Connection!Con.OpenCompanyConnection
+				F.ODBC.Connection!Con.OpenLocalRecordSetRO("rst",V.Local.sSql)
+				F.Intrinsic.Control.If(V.ODBC.Con!rst.EOF,=,False)
+					F.Intrinsic.String.Build("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13}",V.Local.sPart,"",V.Local.iQtyRemain,V.DataView.SOWIPTOFG!WIP(V.Args.DVIndex).Default_Bin!FieldValTrim,V.DataView.SOWIPTOFG!WIP(V.Args.DVIndex).To_Bin!FieldValTrim,"","","","","","","Y",V.Caller.User,V.Ambient.Date.formatYYYYMMDD,V.Local.sText)
+				
+					F.Intrinsic.Control.If(V.Local.sText.Length,>,0)
+						'saving comma delimented file to be used by lot054up
+						F.Intrinsic.String.Build("W{0}{1}BIN2BINTRNS",V.Caller.CompanyCode,V.Caller.Terminal,V.Local.sFile)
+						F.Intrinsic.String.Build("{0}\{1}",V.Caller.FilesDir,V.Local.sFile,V.Local.sFqn)
+						F.Intrinsic.File.String2File(V.Local.sFqn,V.Local.sText)
+						
+						'commenting this out they want to see the reports leaving this line of code in just in case at a later time they don't want to see the report.
+						'theres a script on 16090 that checks to see if this file exists, if so it cancel the report from showing.
+						F.Intrinsic.String.Build("{0}\{1}4826.stop",V.Caller.FilesDir,V.Caller.Terminal,V.Local.sStop)
+						F.Intrinsic.File.String2File(V.Local.sStop,"Stop")
+						F.Intrinsic.Task.LaunchGSSSync("LOT054UP","-c",V.Local.sFile)	
+						F.Intrinsic.File.DeleteFile(V.Local.sStop)
+						
+						V.Local.iDTIndex.Set(V.DataView.SOWIPTOFG!WIP(V.Args.DVIndex).DataTableIndex)
+						V.Local.iWipQty.Set(V.DataView.SOWIPTOFG!WIP(V.Args.DVIndex).Qty_Scanned!FieldVallong)
+						F.Data.DataTable.SetValue("SOWIPTOFG",V.Local.iDTIndex,"WIP_Qty",V.Local.iWipQty,"WIPTOFG",V.Local.sClose)
+					F.Intrinsic.Control.EndIf
+'					'getting last transaction number from wireless table
+'					F.ODBC.Connection!Con.GetID("Wireless_Hdr","Trans_ID",True,V.Local.iID)
+'					F.Intrinsic.String.Format(V.Local.iID,"0000000",V.Local.sTransID)
+'	
+'					'creating line record
+'					F.Intrinsic.String.Format(V.Local.iQtyRemain,"#0.00",V.Local.sQty)
+'					F.Intrinsic.String.Build("Insert into Wireless_Line values ('{0}','0000','O90','{1}','','{2}','{3}','{4}','','','','0000','0000','','0','','','','','','','','','','','','','','','0','Y','','{5}','{6}','WIR200')",V.Local.sTransID,V.Local.sPart,V.Local.sQty,V.DataView.SOWIPTOFG!WIP(V.Args.DVIndex).Default_Bin!FieldValTrim,V.DataView.SOWIPTOFG!WIP(V.Args.DVIndex).To_Bin!FieldValTrim,V.Ambient.Date.formatYYYYMMDD,V.Ambient.Date.FormatHhNnSs,V.Local.sSql)
+'					F.ODBC.Connection!Con.Execute(V.Local.sSql)
+'					'creating hdr record
+'					F.Intrinsic.String.Build("Insert into Wireless_Hdr values('{0}','O90','N','N','{1}','00000000','','','{2}',0,0,'','{1}','00000000','WIR200')",V.Local.sTransID,V.Ambient.Date.formatYYYYMMDD,V.Caller.User,V.Local.sSql)
+'					F.ODBC.Connection!Con.Execute(V.Local.sSql)
+				F.Intrinsic.Control.Else
+'					F.Intrinsic.String.Build("SO Line: {0} Part: {1} does not have enough Qty in selected Default Bin",V.DataView.SOWIPTOFG!WIP(V.Args.DVIndex).Record_No!FieldVal,V.DataView.SOWIPTOFG!WIP(V.Args.DVIndex).Part!FieldVal,V.Local.sMsg)
+'					F.Intrinsic.UI.Msgbox(V.Local.sMsg)
+					'getting qyt for selected bin and putting resetting qty left on the grid
+					F.Intrinsic.String.Build("Select Quantity From V_Item_Master Where Part = '{0}' and Bin = '{1}' and Heat = '' and Serial_Number = '' and Lot = ''",V.Local.sPart,V.DataView.SOWIPTOFG!WIP(V.Args.DVIndex).Default_Bin!FieldValTrim,V.Local.sSql)
+					F.Data.DataTable.CreateFromSQL("QTYTEMP","con",V.Local.sSql,True)
+					F.Intrinsic.Control.If(V.DataTable.QTYTEMP.RowCount--,<>,-1)
+						F.Intrinsic.Math.Sub(V.Local.iQtyRemain,V.DataTable.QTYTEMP(V.DataTable.QTYTEMP.RowCount--).Quantity.FieldValLong,V.Local.iTempQty)
+						F.Intrinsic.String.Build("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13}",V.Local.sPart,"",V.DataTable.QTYTEMP(V.DataTable.QTYTEMP.RowCount--).Quantity.FieldValLong,V.DataView.SOWIPTOFG!WIP(V.Args.DVIndex).Default_Bin!FieldValTrim,V.DataView.SOWIPTOFG!WIP(V.Args.DVIndex).To_Bin!FieldValTrim,"","","","","","","Y",V.Caller.User,V.Ambient.Date.formatYYYYMMDD,V.Local.sText)
+					
+						F.Intrinsic.Control.If(V.Local.sText.Length,>,0)
+							'saving comma delimented file to be used by lot054up
+							F.Intrinsic.String.Build("W{0}{1}BIN2BINTRNS",V.Caller.CompanyCode,V.Caller.Terminal,V.Local.sFile)
+							F.Intrinsic.String.Build("{0}\{1}",V.Caller.FilesDir,V.Local.sFile,V.Local.sFqn)
+							F.Intrinsic.File.String2File(V.Local.sFqn,V.Local.sText)
+							
+							'commenting this out they want to see the reports leaving this line of code in just in case at a later time they don't want to see the report.
+							'theres a script on 16090 that checks to see if this file exists, if so it cancel the report from showing.
+							F.Intrinsic.String.Build("{0}\{1}4826.stop",V.Caller.FilesDir,V.Caller.Terminal,V.Local.sStop)
+							F.Intrinsic.File.String2File(V.Local.sStop,"Stop")
+							F.Intrinsic.Task.LaunchGSSSync("LOT054UP","-c",V.Local.sFile)	
+							F.Intrinsic.File.DeleteFile(V.Local.sStop)
+							F.Intrinsic.Math.Sub(V.DataView.SOWIPTOFG!WIP(V.Args.DVIndex).Qty_Scanned!FieldVallong,V.Local.iTempQty,V.Local.iWipQty)
+							V.Local.sClose.Set("N")
+							V.Local.iDTIndex.Set(V.DataView.SOWIPTOFG!WIP(V.Args.DVIndex).DataTableIndex)
+							F.Data.DataTable.SetValue("SOWIPTOFG",V.Local.iDTIndex,"WIP_Qty",V.Local.iWipQty,"Qty_Scanned",V.Local.iWipQty,"WIPTOFG",V.Local.sClose)
+						F.Intrinsic.Control.EndIf
+					F.Intrinsic.Control.Else
+						F.Intrinsic.String.Build("SO Line: {0} Part: {1} does not have Qty in selected Default Bin",V.DataView.SOWIPTOFG!WIP(V.Args.DVIndex).Record_No!FieldVal,V.DataView.SOWIPTOFG!WIP(V.Args.DVIndex).Part!FieldVal,V.Local.sMsg)
+						F.Intrinsic.UI.Msgbox(V.Local.sMsg)
+					F.Intrinsic.Control.EndIf
+					F.Data.DataTable.Close("QTYTEMP")
+				F.Intrinsic.Control.EndIf
+				F.ODBC.Con!rst.Close
+				F.ODBC.Connection!Con.Close
+			F.Intrinsic.Control.EndIf
+
+		F.Intrinsic.Control.Else
+			V.Local.iDTIndex.Set(V.DataView.SOWIPTOFG!WIP(V.Args.DVIndex).DataTableIndex)
+			F.Data.DataTable.SetValue("SOWIPTOFG",V.Local.iDTIndex,"WIPTOFG",V.Local.sClose)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+	
+	F.ODBC.Connection!Con.OpenCompanyConnection
+	
+	F.Intrinsic.Debug.SetLA("Save to DB")
+	F.Data.DataTable.SaveToDB("SOWIPTOFG","con","GCG_4826_SO_WIPTOFG","ORDER_NO*!*RECORD_NO",7,"ORDER_NO@!@ORDER_NO*!*RECORD_NO@!@RECORD_NO*!*PART@!@PART*!*PRODUCT_LINE@!@PRODUCT_LINE*!*DESCRIPTION@!@DESCRIPTION*!*JOB@!@JOB*!*SUFFIX@!@SUFFIX*!*QTY_ORDERED@!@QTY_ORDERED*!*QTY_SCANNED@!@QTY_SCANNED*!*TO_BIN@!@TO_BIN*!*WIPTOFG@!@WIPTOFG*!*WIP_QTY@!@WIP_QTY*!*DEFAULT_BIN@!@DEFAULT_BIN*!*INV_QTY@!@INV_QTY*!*COMMENT@!@COMMENT")
+	
+	F.Data.DataTable.AcceptChanges("SOWIPTOFG")
+	
+	F.Intrinsic.UI.ChangeWaitStatus("Printing Labels................")
+	
+	F.Intrinsic.Control.If(V.Screen.FormSOWIPFG!chkLabels.Value,=,0)
+		V.Local.sFields.Set("WO*!*WO_SUFFIX*!*SO*!*SO_LINE*!*PART*!*DESCR*!*ALT_DESC_1*!*USER_ID*!*QTYONLABEL")
+		V.Local.sDataTypes.Set("String*!*String*!*String*!*String*!*String*!*String*!*String*!*String*!*String")
+
+		F.Data.DataTable.CreateFromString("LabelTemp","String*!*String*!*String*!*String*!*String*!*String*!*String*!*String*!*String",V.Local.sFields,V.Local.sDataTypes,"*!*","@!@",True)
+	
+		F.Data.DataTable.DeleteRow("LabelTemp")
+		F.Data.DataTable.AcceptChanges("LabelTemp")
+	
+		F.Data.DataTable.AddRow("LabelTemp","WO",V.DataTable.SOWIPTOFG(V.Local.iDTIndex).Job!FieldValTrim,"WO_SUFFIX",V.DataTable.SOWIPTOFG(V.Local.iDTIndex).Suffix!FieldValTrim,"SO",V.DataTable.SOWIPTOFG(V.Local.iDTIndex).Order_No!FieldValTrim,"SO_LINE",V.DataTable.SOWIPTOFG(V.Local.iDTIndex).Record_No!FieldValTrim,"Part",V.DataTable.SOWIPTOFG(V.Local.iDTIndex).Part!FieldValTrim,"DESCR",V.DataTable.SOWIPTOFG(V.Local.iDTIndex).Description!FieldValTrim,"USER_ID",V.Caller.User,"QTYONLABEL",V.Local.iQty,"ALT_DESC_1","")
+		
+		F.Intrinsic.String.Build("Select Description_2 From V_Inventory_Mst2 Where Part = '{0}'",V.DataTable.SOWIPTOFG(V.Local.iDTIndex).Part!FieldValTrim,V.Local.sSql)
+		F.Data.DataTable.CreateFromSQL("AltDesc","Con",V.Local.sSql,True)
+		
+		F.Intrinsic.Control.If(V.DataTable.AltDesc.RowCount--,<>,-1)
+			F.Data.DataTable.SetValue("LabelTemp",-1,"ALT_DESC_1",V.DataTable.AltDesc(V.DataTable.AltDesc.RowCount--).Description_2!FieldValTrim)
+		F.Intrinsic.Control.EndIf
+		
+		F.Data.DataTable.Close("AltDesc")
+		
+		F.Global.BI.GetIDFromName("GCG_4826_Audit_Label.lab",V.Local.iRptID)
+		V.Local.sPrinter.Set(V.Screen.FormSOWIPFG!ddlLabelPrinter.Text)
+		
+		F.Intrinsic.Control.For(V.Local.i,1,V.Local.fLabel,1)
+			F.Intrinsic.Control.If(V.Local.iQty,>,1)
+				F.Intrinsic.Control.If(V.Local.i,=,V.Local.fLabel)
+					F.Intrinsic.Math.Mult(V.Local.iQty,V.Local.i,V.Local.iQty)
+					F.Intrinsic.Math.Sub(V.Local.iQty,V.Local.iQtyRemain,V.Local.iQty)
+					F.Intrinsic.Math.Sub(V.Screen.FormSOWIPFG!txtPrintQtyOverride.Text,V.Local.iQty,V.Local.iQty)
+					F.Data.DataTable.SetValue("LabelTemp",-1,"QtyOnLabel",V.Local.iQty)
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.EndIf
+			F.Global.BI.GetRunID(V.Local.iBIRunID)
+			F.Global.BI.StartLogging(V.Local.iBIRunID,V.Local.iRptID,0,"",V.Local.iLogID)
+			F.Global.BI.StopLogging(V.Local.iLogID)
+			F.Global.BI.PrintCodesoftLabelFromDataTable(V.Local.iBIRunID,V.Local.iLogID,"LabelTemp",V.Local.sPrinter,True)
+		F.Intrinsic.Control.Next(V.Local.i)
+		
+		F.Data.DataTable.Close("LabelTemp")
+	F.Intrinsic.Control.EndIf
+	
+	F.ODBC.Connection!Con.Close
+
+	F.Intrinsic.Control.ExitSub
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}Last Action: {5}","GCG_4826_SO_WIPTOFG.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.LastAction,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub(FormSOWIPFG_UnLoad)
+	F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+Program.Sub.WIPToFG.End
+
+Program.Sub.FormItemMaster_UnLoad.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare(String,"")
+	V.Local.sDir.Declare(String,"")
+	V.Local.bRet.Declare(Boolean,False)
+	V.Local.sFile.Declare(String,"")
+	V.Local.sReturn.Declare(String,"")
+	
+	F.Intrinsic.String.Build("{0}\Custom\4826",V.Caller.GlobalDir,V.Local.sDir)
+	F.Intrinsic.String.Build("{0}\{1}_4826_WIPTOFG.txt",V.Local.sDir,V.Caller.User,V.Local.sFile)
+	
+	F.Intrinsic.File.DirExists(V.Local.sDir,V.Local.bRet)
+	
+	F.Intrinsic.Control.If(V.Local.bRet,=,False)
+		F.Intrinsic.File.CreateDir(V.Local.sDir)
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.String.Build("{0}\{1}_4826_ItemMaster.txt",V.Local.sDir,V.Caller.User,V.Local.sFile)
+	
+	Gui.FormItemMaster.GsGridControlItemMaster.Serialize("ItemMaster",V.Local.sReturn)
+	
+	F.Intrinsic.File.String2File(V.Local.sFile,V.Local.sReturn)
+	
+	F.Intrinsic.Debug.SetLA("Hiding View Item Bin Quantities Screen")
+	Gui.FormItemMaster..Visible(False)
+	
+	F.Intrinsic.Control.ExitSub
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}Last Action: {5}","GCG_4826_SO_WIPTOFG.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.LastAction,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub(FormSOWIPFG_UnLoad)
+	F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+Program.Sub.FormItemMaster_UnLoad.End
+
+Program.Sub.Table_Cleanup.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare(String,"")
+	V.Local.sSql.Declare(String,"")
+	
+	F.Intrinsic.String.Build("Delete From GCG_4826_SO_WIPTOFG where Order_No Not In(Select Order_No From V_Order_Header Where ")
+	F.Intrinsic.Control.ExitSub
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}Last Action: {5}","GCG_4826_SO_WIPTOFG.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.LastAction,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub(FormSOWIPFG_UnLoad)
+	F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+Program.Sub.Table_Cleanup.End
+
+Program.Sub.Form_Comments_UnLoad.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare(String,"")
+'	V.Local.sDir.Declare(String,"")
+'	V.Local.bRet.Declare(Boolean,False)
+'	V.Local.sFile.Declare(String,"")
+'	V.Local.sReturn.Declare(String,"")
+'	
+'	F.Intrinsic.String.Build("{0}\Custom\4826",V.Caller.GlobalDir,V.Local.sDir)
+'	F.Intrinsic.String.Build("{0}\{1}_4826_WIPTOFG.txt",V.Local.sDir,V.Caller.User,V.Local.sFile)
+'	
+'	F.Intrinsic.File.DirExists(V.Local.sDir,V.Local.bRet)
+'	
+'	F.Intrinsic.Control.If(V.Local.bRet,=,False)
+'		F.Intrinsic.File.CreateDir(V.Local.sDir)
+'	F.Intrinsic.Control.EndIf
+'	
+'	F.Intrinsic.Control.If(V.Global.sGridComments,=,"View")
+'		F.Intrinsic.String.Build("{0}\{1}_4826_ViewComments.txt",V.Local.sDir,V.Caller.User,V.Local.sFile)
+'		
+'		Gui.Form_Comments.GsGridControlViewComments.Serialize("ViewComments",V.Local.sReturn)
+'		
+'		F.Intrinsic.File.String2File(V.Local.sFile,V.Local.sReturn)
+'	F.Intrinsic.Control.Else
+'		F.Intrinsic.String.Build("{0}\{1}_4826_EditComments.txt",V.Local.sDir,V.Caller.User,V.Local.sFile)
+'		
+'		Gui.Form_Comments.GsGridControlEditComments.Serialize("EditComments",V.Local.sReturn)
+'		
+'		F.Intrinsic.File.String2File(V.Local.sFile,V.Local.sReturn)
+'	F.Intrinsic.Control.EndIf
+'	
+'	Gui.Form_Comments..Visible(False)
+'	
+'	F.Intrinsic.Control.ExitSub
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}Last Action: {5}","GCG_4826_SO_WIPTOFG.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.LastAction,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub(FormSOWIPFG_UnLoad)
+	F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+Program.Sub.Form_Comments_UnLoad.End
+
+Program.Sub.cmdCommentSave_Click.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare(String,"")
+
+'	F.ODBC.Connection!Con.OpenCompanyConnection
+'	
+'	F.Data.DataTable.SaveToDB("EditComments","con","GCG_4826_Comments","Rec_No*!*Order_No*!*Record_No",7,"Rec_No@!@Rec_No*!*Order_No@!@Order_No*!*Record_No@!@Record_No*!*Comment@!@Comment")
+'	
+'	F.ODBC.Connection!Con.Close
+'	
+'	F.Intrinsic.Control.CallSub(Form_Comments_Unload)
+'	
+'	F.Intrinsic.Control.ExitSub
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}Last Action: {5}","GCG_4826_SO_WIPTOFG.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.LastAction,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub(FormSOWIPFG_UnLoad)
+	F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+Program.Sub.cmdCommentSave_Click.End
+
+Program.Sub.GsGridControlEditComments_RowCellClick.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare(String,"")
+	
+'	F.Intrinsic.Control.If(V.Global.sGridComments,=,"Edit")
+'		F.Intrinsic.Control.If(V.Args.Column,=,"Button")
+'			F.Data.DataTable.DeleteRow("EditComments",V.Args.RowIndex)
+'		F.Intrinsic.Control.EndIf
+'	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.ExitSub
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}Last Action: {5}","GCG_4826_SO_WIPTOFG.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.LastAction,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub(FormSOWIPFG_UnLoad)
+	F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+Program.Sub.GsGridControlEditComments_RowCellClick.End
+
+Program.Sub.GsGridControlSOWIPTOFG_CellValueChanged.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare(String,"")
+	
+	F.ODBC.Connection!con.OpenCompanyConnection
+	
+	F.Intrinsic.Control.If(V.Args.Column.UCase,=,"COMMENT")
+		F.Data.DataTable.AcceptChanges("SOWIPTOFG")
+		F.Data.DataTable.SaveToDB("SOWIPTOFG","con","GCG_4826_SO_WIPTOFG","ORDER_NO*!*RECORD_NO",256,"ORDER_NO@!@ORDER_NO*!*RECORD_NO@!@RECORD_NO*!*PART@!@PART*!*PRODUCT_LINE@!@PRODUCT_LINE*!*DESCRIPTION@!@DESCRIPTION*!*JOB@!@JOB*!*SUFFIX@!@SUFFIX*!*QTY_ORDERED@!@QTY_ORDERED*!*QTY_SCANNED@!@QTY_SCANNED*!*TO_BIN@!@TO_BIN*!*WIPTOFG@!@WIPTOFG*!*WIP_QTY@!@WIP_QTY*!*DEFAULT_BIN@!@DEFAULT_BIN*!*INV_QTY@!@INV_QTY*!*COMMENT@!@COMMENT")
+	F.Intrinsic.Control.EndIf
+	
+	F.ODBC.Connection!Con.Close
+	
+	F.Intrinsic.Control.ExitSub
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}Last Action: {5}","GCG_4826_SO_WIPTOFG.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.LastAction,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub(FormSOWIPFG_UnLoad)
+	F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+Program.Sub.GsGridControlSOWIPTOFG_CellValueChanged.End
+
+Program.Sub.txtPrintQtyOverride_LostFocus.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare(String,"")
+	
+	F.ODBC.Connection!con.OpenCompanyConnection
+	
+	F.Data.DataTable.SaveToDB("PrintQty","con","GCG_4826_Print_Qty","Company",7,"Company@!@Company*!*Print_Qty@!@Print_Qty")
+	
+	F.ODBC.Connection!Con.Close
+	
+	F.Intrinsic.Control.ExitSub
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}Last Action: {5}","GCG_4826_SO_WIPTOFG.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.LastAction,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub(FormSOWIPFG_UnLoad)
+	F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+Program.Sub.txtPrintQtyOverride_LostFocus.End
+
+Program.Sub.txtPrintQtyOverride_GotFocus.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare(String,"")
+	
+	Gui.FormSOWIPFG.txtPrintQtyOverride.SelectAll
+	
+	F.Intrinsic.Control.ExitSub
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}Last Action: {5}","GCG_4826_SO_WIPTOFG.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.LastAction,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub(FormSOWIPFG_UnLoad)
+	F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+Program.Sub.txtPrintQtyOverride_GotFocus.End
+
+Program.Sub.txtQtyPer_GotFocus.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare(String,"")
+	
+	Gui.Form_LabelOverride.txtQtyPer.SelectAll
+	
+	F.Intrinsic.Control.ExitSub
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}Last Action: {5}","GCG_4826_SO_WIPTOFG.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.LastAction,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub(FormSOWIPFG_UnLoad)
+	F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+Program.Sub.txtQtyPer_GotFocus.End
+
+Program.Sub.txtNumberOfLabels_GotFocus.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare(String,"")
+	
+	Gui.Form_LabelOverride.txtNumberOfLabels.SelectAll
+	
+	F.Intrinsic.Control.ExitSub
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}Last Action: {5}","GCG_4826_SO_WIPTOFG.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.LastAction,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub(FormSOWIPFG_UnLoad)
+	F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+Program.Sub.txtNumberOfLabels_GotFocus.End
+
+Program.Sub.Form_LabelOverride_UnLoad.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare(String,"")
+	
+	Gui.FormSOWIPFG..Enabled(True)
+	Gui.Form_LabelOverride..Visible(False)
+	
+	F.Intrinsic.Control.ExitSub
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}Last Action: {5}","GCG_4826_SO_WIPTOFG.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.LastAction,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub(FormSOWIPFG_UnLoad)
+	F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+Program.Sub.Form_LabelOverride_UnLoad.End
+
+Program.Sub.cmdSubmit_Click1.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare(String,"")
+	V.Local.sSql.Declare(String,"")
+	V.Local.iBIRunID.Declare(Long,0)
+	V.Local.iLogID.Declare(Long,0)
+	V.Local.sPrinter.Declare(String,"")
+	V.Local.iRptID.Declare(Long,0)
+	V.Local.i.Declare(Long,0)
+	V.Local.sFields.Declare(String,"")
+	V.Local.sDataTypes.Declare(String,"")
+	
+	Gui.Form_LabelOverride.cmdSubmit.Enabled(False)
+	'printing inv labels
+	F.Intrinsic.Control.If(V.Screen.Form_LabelOverride!txtNumberOfLabels.Text,<>,"","AND",V.Screen.Form_LabelOverride!txtQtyPer.Text,<>,"")
+		F.Intrinsic.Control.If(V.Screen.Form_LabelOverride!txtNumberOfLabels.Text,>,0,"OR",V.Screen.Form_LabelOverride!txtQtyPer.Text,>,0)
+			F.ODBC.Connection!Con.OpenCompanyConnection
+			V.Local.sFields.Set("WO*!*WO_SUFFIX*!*SO*!*SO_LINE*!*PART*!*DESCR*!*ALT_DESC_1*!*USER_ID*!*QTYONLABEL")
+			V.Local.sDataTypes.Set("String*!*String*!*String*!*String*!*String*!*String*!*String*!*String*!*String")
+		
+			F.Data.DataTable.CreateFromString("LabelTemp","",V.Local.sFields,V.Local.sDataTypes,"*!*","@!@",True)
+			
+			F.Data.DataTable.DeleteRow("LabelTemp")
+			F.Data.DataTable.AcceptChanges("LabelTemp")
+	
+			F.Data.DataTable.AddRow("LabelTemp","WO",V.DataTable.SOWIPTOFG(V.Global.iIndex).Job!FieldValTrim,"WO_SUFFIX",V.DataTable.SOWIPTOFG(V.Global.iIndex).Suffix!FieldValTrim,"SO",V.DataTable.SOWIPTOFG(V.Global.iIndex).Order_No!FieldValTrim,"SO_LINE",V.DataTable.SOWIPTOFG(V.Global.iIndex).Record_No!FieldValTrim,"Part",V.DataTable.SOWIPTOFG(V.Global.iIndex).Part!FieldValTrim,"DESCR",V.DataTable.SOWIPTOFG(V.Global.iIndex).Description!FieldValTrim,"USER_ID",V.Caller.User,"QTYONLABEL",V.Screen.Form_LabelOverride!txtQtyPer.Text)
+			
+			F.Intrinsic.String.Build("Select Description_2 From V_Inventory_Mst2 Where Part = '{0}'",V.DataTable.SOWIPTOFG(V.Global.iIndex).Part!FieldValTrim,V.Local.sSql)
+			F.Data.DataTable.CreateFromSQL("AltDesc","Con",V.Local.sSql,True)
+			
+			F.Intrinsic.Control.If(V.DataTable.AltDesc.RowCount--,<>,-1)
+				F.Data.DataTable.SetValue("LabelTemp",-1,"ALT_DESC_1",V.DataTable.AltDesc(V.DataTable.AltDesc.RowCount--).Description_2!FieldValTrim)
+			F.Intrinsic.Control.EndIf
+			
+			F.Data.DataTable.Close("AltDesc")
+			
+			F.Global.BI.GetIDFromName("GCG_4826_Audit_Label.lab",V.Local.iRptID)
+			V.Local.sPrinter.Set(V.Screen.FormSOWIPFG!ddlLabelPrinter.Text)
+			
+			F.Intrinsic.Control.For(V.Local.i,1,V.Screen.Form_LabelOverride!txtNumberOfLabels.Text,1)
+				F.Global.BI.GetRunID(V.Local.iBIRunID)
+				F.Global.BI.StartLogging(V.Local.iBIRunID,V.Local.iRptID,0,"",V.Local.iLogID)
+				F.Global.BI.StopLogging(V.Local.iLogID)
+				F.Global.BI.PrintCodesoftLabelFromDataTable(V.Local.iBIRunID,V.Local.iLogID,"LabelTemp",V.Local.sPrinter,True)
+			F.Intrinsic.Control.Next(V.Local.i)
+			
+			F.Data.DataTable.Close("LabelTemp")
+			F.ODBC.Connection!Con.Close
+		F.Intrinsic.Control.Else
+			F.Intrinsic.UI.Msgbox("Qty must be greater than 0....")
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Else
+		F.Intrinsic.UI.Msgbox("A Qty must be entered in both Qty boxes....")
+	F.Intrinsic.Control.EndIf
+	
+	Gui.Form_LabelOverride.cmdSubmit.Enabled(True)
+	
+	F.Intrinsic.Control.CallSub(Form_LabelOverride_UnLoad)
+	
+	F.Intrinsic.Control.ExitSub
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}Last Action: {5}","GCG_4826_SO_WIPTOFG.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.LastAction,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub(FormSOWIPFG_UnLoad)
+	F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+Program.Sub.cmdSubmit_Click1.End
+
+Program.Sub.cmdAdjustBins_Click.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare(String,"")
+	
+	F.Intrinsic.Control.If(V.DataTable.SOWIPTOFG.RowCount--,<>,-1)
+		F.Data.DataTable.SetValue("SOWIPTOFG",-1,"To_Bin",V.Screen.FormSOWIPFG!cboToBin.Text)
+	F.Intrinsic.Control.EndIf
+	
+	Gui.FormSOWIPFG.cboToBin.ListIndex(0)
+	
+	F.Intrinsic.Control.ExitSub
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}Last Action: {5}","GCG_4826_SO_WIPTOFG.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.LastAction,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub(FormSOWIPFG_UnLoad)
+	F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+Program.Sub.cmdAdjustBins_Click.End
