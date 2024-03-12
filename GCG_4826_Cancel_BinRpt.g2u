@@ -1,0 +1,33 @@
+Program.Sub.Preflight.Start
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare(String)
+V.Local.sFile.Declare(String)
+V.Local.bRet.Declare(Boolean,False)
+
+F.Intrinsic.Control.If(V.Caller.Hook,=,"16090")
+	F.Intrinsic.Control.If(V.Passed.009001,=,"002578")
+		'not running bin to bin report when called in transit project
+		'checking if a stop file exists
+		F.Intrinsic.String.Build("{0}\{1}4826.stop",V.Caller.FilesDir,V.Caller.Terminal,V.Local.sFile)
+		
+		F.Intrinsic.File.Exists(V.Local.sFile,V.Local.bRet)
+		F.Intrinsic.Control.If(V.Local.bRet,=,True)
+			V.Passed.Cancel.Set(1)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.End
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}","GCG_4826_Cancel_BinRpt.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+Program.Sub.Main.End
